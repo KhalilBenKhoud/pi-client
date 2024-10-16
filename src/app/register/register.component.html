@@ -1,0 +1,64 @@
+<p-toast position="top-center"></p-toast>
+
+
+<div class="container">
+	<div class="screen">
+		<div class="screen__content">
+			<form class="login" (ngSubmit)="onSubmit()">
+                <div class="fields">
+                <div>
+                <div class="login__field">
+					<i class="login__icon fa-solid fa-circle-user"></i>
+					<input type="text" class="login__input" [(ngModel)]="username" name="username"  placeholder="Username" required>
+				</div>
+                <div class="login__field">
+					<i class="login__icon fa-solid fa-circle-user"></i>
+					<input type="text" class="login__input" [(ngModel)]="email"  name="email" placeholder="Email" required>
+				</div>
+				<div class="login__field">
+					<i class="login__icon fas fa-user"></i>
+					<input type="text" class="login__input" [(ngModel)]="experience"  name="experience"  placeholder="Experience (years)" required>
+				</div>
+                <div class="login__field" style="width: 650px;">
+                  <p><b> Your proficiency :</b></p>
+                  <p-selectButton 
+                  [options]="stateOptions" 
+                  [(ngModel)]="proficiency" 
+                  optionLabel="label" 
+                  optionValue="value"
+                  name="proficiency"
+                  
+                  />
+                
+               </div>
+            </div>
+            <div>
+               <div class="login__field" >
+                <i class="login__icon fas fa-lock"></i>
+                <input type="password"  class="login__input"  name="password"  [(ngModel)]="password" placeholder="Password" required>
+            </div>
+            <div class="login__field">
+                <i class="login__icon fas fa-lock"></i>
+                <input type="password" class="login__input"  name="repeatPassword"  [(ngModel)]="repeatPassword" placeholder="Repeat it" required>
+            </div>
+            </div>
+           </div>
+    
+
+
+				<button class="button login__submit" >
+					<span class="button__text">Register</span>
+					<i class="button__icon fas fa-chevron-right"></i>
+				</button>				
+			</form>
+		</div>
+		<div class="screen__background">
+			<span class="screen__background__shape screen__background__shape4"></span>
+			<span class="screen__background__shape screen__background__shape3"></span>		
+			<span class="screen__background__shape screen__background__shape2"></span>
+			<span class="screen__background__shape screen__background__shape1"></span>
+		</div>		
+	</div>
+   
+</div>
+

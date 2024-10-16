@@ -1,0 +1,13 @@
+<nav>
+<img src="../../assets/images/logo.png"  routerLink="home" style="cursor: pointer;">
+<div class="links">
+    <p-button  label="Login"  *ngIf="!authService.isAuthenticated()" routerLink="login" icon="pi pi-sign-in" />
+    <p-button label="register"   *ngIf="!authService.isAuthenticated()" routerLink="register" styleClass="register"  icon="pi pi-user-plus" />
+    <p-button label="trading"    *ngIf="authService.isAuthenticated()" routerLink="trading"   icon="pi pi-euro" />
+
+  
+  
+    <p-button label="logout"  (click)="logout()"   *ngIf="authService.isAuthenticated()"  styleClass="register"   icon="pi pi-sign-out" />
+
+</div>
+</nav>

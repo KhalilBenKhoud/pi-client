@@ -1,0 +1,18 @@
+nav {
+    padding: 10px 50px;
+    background-color: aliceblue;
+    display: flex;
+    justify-content: space-between;
+}
+.links {
+    display: flex;
+    gap : 30px ;
+}
+:host ::ng-deep .register{
+    background: gray;
+    border-color: gray;
+    &:hover {
+        background-color: whitesmoke;
+        color : black ;
+    }
+  }

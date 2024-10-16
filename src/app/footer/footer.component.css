@@ -1,0 +1,129 @@
+.footer_section {
+    width: 100%;
+    float: left;
+    padding-bottom: 90px;
+}
+.layout_padding {
+    padding-top: 90px;
+    padding-bottom: 0px;
+}
+.footer_about {
+    width: 100%;
+    float: left;
+    font-size: 26px;
+    color: #ffffff;
+    overflow-y: hidden;
+}
+.dolor_amet_text {
+    width: 83%;
+    float: left;
+    font-size: 16px;
+    margin-left: 0px;
+    color: #ffffff;
+}
+.dolor_amet_text_1 {
+    width: 43%;
+    float: left;
+    font-size: 16px;
+    margin-left: 0px;
+    color: #ffffff;
+}
+
+.mail_text {
+    width: 100%;
+    float: left;
+    font-size: 16px;
+    color: #ccc8c8;
+    background-color: #ffffff;
+    padding: 10px 20px;
+    border: 0px;
+    margin-top: 20px;
+}
+.subscribe_bt {
+    width: 50%;
+    float: left;
+    background-color: #fddd33;
+    color: #ffffff;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 18px;
+    padding: 10px 0px;
+    margin-top: 25px;
+}
+.copyright_section {
+    width: 100%;
+    float: left;
+    background-color: #016e9f;
+    height: auto;
+}
+.copyright {
+    width: 100%;
+    float: left;
+    font-size: 18px;
+    color: #fdfdfe;
+    text-align: center;
+    margin-left: 0px;
+}
+.copyright a {
+    color: #fdfdfe;
+}
+.copyright a:hover{
+    color: #000;
+}
+
+.padding_top_0{
+     margin-top: 90px;
+}
+
+.news_section_2 {
+    width: 100%;
+    float: left;
+    padding-bottom: 90px;
+}
+.study_text {
+    width: 100%;
+    float: left;
+    font-size: 24px;
+    font-weight: 600;
+    color: #000;
+    padding-top: 40px;
+}
+
+.sed_text{
+     width: 100%;
+     float: left;
+     font-size: 16px;
+     color: #898989;
+     margin-left: 0px;
+}
+.readmore_bt{
+     width: 100%;
+     float: left;
+     margin-top: 30px;
+}
+.readmore_bt a {
+    width: 25%;
+    float: left;
+    font-size: 18px;
+    color: #ffffff;
+    text-align: center;
+    background-color: #016e9f;
+    border-radius: 30px;
+    padding: 10px 0px;
+}
+.readmore_bt a{
+     color: #ffffff;
+}
+.readmore_bt a:hover{
+     color: #ffffff;
+     background-color: #000;
+}
+
+:host ::ng-deep .send{
+     background: rgb(189, 189, 18);
+     border-color: gray;
+     &:hover {
+         background-color:goldenrod ;
+         
+     }
+   }
