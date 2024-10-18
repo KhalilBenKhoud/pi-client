@@ -3,7 +3,21 @@ nav {
     background-color: aliceblue;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    position : fixed ;
+    width: 100%;
+    z-index: 20;
+    transition: box-shadow 0.3s ease-in-out;
+   height: 70px;
+   overflow: hidden;
 }
+.scrolled {
+ 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Add shadow */
+    height: 60px;
+  
+  }
+  
 .links {
     display: flex;
     gap : 30px ;
