@@ -33,7 +33,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     NavbarComponent,
     FooterComponent,
     TradingComponent,
-    PredictionComponent
+  
   ],
   imports: [
     BrowserModule,
