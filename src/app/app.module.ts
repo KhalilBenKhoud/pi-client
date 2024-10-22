@@ -20,6 +20,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from './services/auth.interceptor';
 import { AuthGuard } from './auth.guard';
 import { NonauthGuard } from './nonauth.guard';
+import { PredictionComponent } from './prediction/prediction.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { NonauthGuard } from './nonauth.guard';
     RegisterComponent,
     NavbarComponent,
     FooterComponent,
-    TradingComponent
+    TradingComponent,
+    PredictionComponent
   ],
   imports: [
     BrowserModule,
