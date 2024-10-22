@@ -20,7 +20,8 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from './services/auth.interceptor';
 import { AuthGuard } from './auth.guard';
 import { NonauthGuard } from './nonauth.guard';
-import { PredictionComponent } from './prediction/prediction.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 
 @NgModule({
@@ -43,7 +44,10 @@ import { PredictionComponent } from './prediction/prediction.component';
     InputTextModule,
     ToastModule,
     SelectButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    CarouselModule,
+    FontAwesomeModule
+    
   ],
   providers: [    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true } , AuthGuard , NonauthGuard ],
   bootstrap: [AppComponent]

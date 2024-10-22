@@ -1,5 +1,5 @@
-<nav>
-<img src="../../assets/images/logo.png"  routerLink="home" style="cursor: pointer;">
+<nav [ngClass]="isScrolled && 'scrolled'" >
+<img src="../../assets/images/logo.png"  routerLink="home" style="cursor: pointer; height: 100px">
 <div class="links">
     <p-button  label="Login"  *ngIf="!authService.isAuthenticated()" routerLink="login" icon="pi pi-sign-in" />
     <p-button label="register"   *ngIf="!authService.isAuthenticated()" routerLink="register" styleClass="register"  icon="pi pi-user-plus" />
