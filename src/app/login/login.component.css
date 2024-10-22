@@ -6,7 +6,7 @@
 	font-family: Raleway, sans-serif;
     display: flex;
 	justify-content: center;
-	margin-top: 50px;
+	margin-top: 90px;
 	margin-bottom: 50px;
 }
 
@@ -175,12 +175,12 @@
 .redirect {
 	font-weight: 600;
 	text-align: left;
-	margin-left: 30px;
-	margin-bottom: 20px;
+	margin: 20px 90px;
+	
 }
 
 .redirect a {
-  color :midnightblue ;
+  color: white ;
   text-decoration: none;
 }
 
