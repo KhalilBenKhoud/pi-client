@@ -22,6 +22,12 @@ import { AuthGuard } from './auth.guard';
 import { NonauthGuard } from './nonauth.guard';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { AcademyComponent } from './academy/academy.component';
+import { SafePipe } from './safe.pipe';
+import { NbThemeModule } from '@nebular/theme';
+import {NbStepperModule, NbCardModule, NbButtonModule,NbLayoutModule} from '@nebular/theme';
+import { QuizComponent } from './academy/quiz/quiz.component';
+import { RadioButtonModule } from 'primeng/radiobutton';
 
 
 @NgModule({
@@ -33,7 +39,9 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     NavbarComponent,
     FooterComponent,
     TradingComponent,
-  
+    AcademyComponent,
+    SafePipe,
+    QuizComponent
   ],
   imports: [
     BrowserModule,
@@ -46,8 +54,13 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     SelectButtonModule,
     HttpClientModule,
     CarouselModule,
-    FontAwesomeModule
-    
+    FontAwesomeModule,
+    NbThemeModule.forRoot(),
+    NbStepperModule,
+    NbCardModule, 
+    NbButtonModule,
+    NbLayoutModule,
+    RadioButtonModule
   ],
   providers: [    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true } , AuthGuard , NonauthGuard ],
   bootstrap: [AppComponent]

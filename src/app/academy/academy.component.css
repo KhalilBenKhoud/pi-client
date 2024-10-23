@@ -1,0 +1,85 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap : 50px ;
+  align-items: center;
+  justify-content: center;
+}
+.banner {
+    height: 400px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: whitesmoke ;
+    position: relative;
+    z-index: 10;
+}
+
+.banner::before {
+  
+    content: ''; /* Required for pseudo-elements */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../../assets/images/banner_education.webp');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: brightness(0.6);
+    z-index: 0;
+    
+}
+.banner h1 {
+  
+    color: aliceblue;
+   z-index: 10;
+  
+}
+
+.banner img {
+    filter: invert(1);
+    height: 250px;
+}
+
+.video-container {
+    width: 70%;
+    margin: auto;
+}
+
+.lesson-container {
+    display: flex;
+    justify-content: center;
+    gap : 50px ;
+    align-items: center;
+    width: 70%;
+
+}
+
+.arrow {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    position: relative;
+}
+
+.navigate {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.disabled {
+    opacity: 0.2;
+    pointer-events: none;
+    cursor: not-allowed;
+    
+}
+      
+
+

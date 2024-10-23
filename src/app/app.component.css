@@ -1,4 +1,7 @@
 :host ::ng-deep .p-button{
     padding: 5px 10px;
   }
+  .page {
   
+    padding: 70px 0;
+  }
