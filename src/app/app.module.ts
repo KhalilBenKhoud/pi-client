@@ -11,8 +11,10 @@ import { RegisterComponent } from './register/register.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { InputTextModule } from 'primeng/inputtext';
-import {ToastModule} from 'primeng/toast'
-import {SelectButtonModule} from 'primeng/selectbutton'
+import {ToastModule} from 'primeng/toast';
+import {SelectButtonModule} from 'primeng/selectbutton';
+
+
 
 import { FormsModule } from '@angular/forms';
 import { TradingComponent } from './trading/trading.component';
@@ -22,6 +24,13 @@ import { AuthGuard } from './auth.guard';
 import { NonauthGuard } from './nonauth.guard';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { PredictionComponent } from './prediction/prediction.component';
+import { ComparisonComponent } from './comparison/comparison.component';
+import { RiskComponent } from './risk/risk.component';
+import { StrategyComponent } from './strategy/strategy.component';
+import { AnalystRecComponent } from './analyst-rec/analyst-rec.component';
+import { AllComponent } from './all/all.component';
+
 
 
 @NgModule({
@@ -33,6 +42,14 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     NavbarComponent,
     FooterComponent,
     TradingComponent,
+    PredictionComponent,
+    ComparisonComponent,
+    RiskComponent,
+    StrategyComponent,
+    AnalystRecComponent,
+    AllComponent,
+    
+    
   
   ],
   imports: [
