@@ -28,7 +28,7 @@ export const animations = [
     trigger('flip', [
       state('void',style({transform : 'rotateY(90deg)', opacity: 0})),
       state('*',style({tranform: 'rotateY(0deg)', opacity: 1})),
-      transition('void => *', [animate('1s ease')])
+      transition('void => *', [animate('3s ease')])
     ])
   ]
   

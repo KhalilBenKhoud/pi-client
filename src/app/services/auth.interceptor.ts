@@ -27,6 +27,9 @@ export class AuthInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     if (!unallowedRequests.includes(request.url.substring(`${environment.BaseApiUrl}`.length))) {
+      console.log('Request URL:', request.url);
+      console.log('Base URL Length:', `${environment.BaseApiUrl}`.length);
+
       const token = localStorage.getItem('accessToken');
       if (token) {
         request = request.clone({
@@ -36,7 +39,7 @@ export class AuthInterceptor implements HttpInterceptor {
     }
     return next.handle(request).pipe(
         catchError((error) => {
-          if (error instanceof HttpErrorResponse && (error.status === 401 || error.status === 403)) {
+          if (error instanceof HttpErrorResponse && (error.status === 401 || error.status === 403 || error.status === 0)) {
             const isWhitelisted = !unallowedRequests.includes(request.url.substring(`${environment.BaseApiUrl}`.length));
             if (isWhitelisted ) {
               return this.handleUnauthorized(request, next);
@@ -51,14 +54,14 @@ export class AuthInterceptor implements HttpInterceptor {
         return this.authService.refreshToken().pipe(
           switchMap((response : any) => {
             localStorage.setItem('accessToken', response.access_token);
-           // console.log("from interceptor",response.access_token) ;
+            console.warn("from interceptor",response.access_token) ;
             return next.handle(
               request.clone({
                 setHeaders: { Authorization: `Bearer ${response.access_token}` },
               })
             );
           }),
-          catchError((error) => throwError(error))
+          catchError((error) => {console.error(error) ; return throwError(error) })
         );
     
 

@@ -1,0 +1,71 @@
+<p-toast position="top-center" style="position: fixed; z-index: 50"></p-toast>
+<section class="page">
+<div class="banner">
+    <h1 @slideUp>Start learning !</h1>
+    <img src="../../assets/images/open-doodles-sitting-and-reading.gif" alt="line" />
+</div>
+<div class="lesson-container"  >
+  <div class="navigate" (click)="previousLesson()" [ngClass]="{ 'disabled': lessonId == 1 }" >
+  <img class="arrow" src="../../assets/images/arrow_left.gif" alt="prev" >
+  <h4>Previous</h4>
+</div>
+<nb-card style="width: 100%; margin: auto;  min-height: 500px;" >
+  <nb-card-body>
+    <nb-stepper orientation="horizontal">
+      <nb-step [label]="labelOne">
+        <ng-template #labelOne>tutorial</ng-template>
+        <h4>Watch the tutorial</h4>
+        <div class="video-container">
+          <h2>{{lessons[lessonId - 1].lesson.title}} {{lessons[lessonId - 1].seen === true ? '(seen before)' : ''}}</h2>
+         <iframe
+             id="youtube-player"
+             width="560"
+             height="315"
+             [src]="'https://www.youtube.com/embed/' + lessons[lessonId - 1].lesson.url  + '?enablejsapi=1' | safe "
+             frameborder="0"
+             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+             allowfullscreen
+           ></iframe>
+         </div>
+       
+        <button nbButton disabled nbStepperNext>prev</button>
+        <button nbButton nbStepperNext>next</button>
+      </nb-step>
+      <nb-step [label]="labelTwo" >
+        <ng-template #labelTwo>First question</ng-template>
+        <app-quiz [question]="'aa'"></app-quiz>
+        <button nbButton nbStepperPrevious>prev</button>
+        <button nbButton nbStepperNext>next</button>
+      </nb-step>
+      <nb-step label="Third step">
+        <h4>Step content #3</h4>
+        <p class="lorem">
+          Lorizzle ipsum dolizzle stuff fizzle, consectetuer adipiscing break it down.
+          Nullizzle sapien velizzle, my shizz pimpin', shizzle my nizzle crocodizzle shut the shizzle up,
+          gravida vizzle, dang.
+        </p>
+        <button nbButton nbStepperPrevious>prev</button>
+        <button nbButton nbStepperNext>next</button>
+      </nb-step>
+      <nb-step [label]="labelFour">
+        <ng-template #labelFour>Fourth step</ng-template>
+        <h4>Step content #4</h4>
+        <p class="lorem">
+          Lorizzle ipsum dolizzle stuff fizzle, consectetuer adipiscing break it down.
+          Nullizzle sapien velizzle, my shizz pimpin', shizzle my nizzle crocodizzle shut the shizzle up,
+          gravida vizzle, dang.
+        </p>
+        <button nbButton nbStepperPrevious>prev</button>
+        <button nbButton disabled nbStepperNext>next</button>
+      </nb-step>
+    </nb-stepper>
+  </nb-card-body>
+</nb-card>
+<div class="navigate" (click)="nextLesson()">
+  <img class="arrow" src="../../assets/images/arrow_right.gif" alt="next" >
+  <h4>Next</h4>
+</div>
+</div>
+
+</section>
+  
