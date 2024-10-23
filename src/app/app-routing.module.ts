@@ -6,7 +6,6 @@ import { RegisterComponent } from './register/register.component';
 import { TradingComponent } from './trading/trading.component';
 import { NonauthGuard } from './nonauth.guard';
 import { AuthGuard } from './auth.guard';
-import { PredictionComponent } from './prediction/prediction.component';
 import { AcademyComponent } from './academy/academy.component';
 
 const routes: Routes = [
@@ -15,7 +14,6 @@ const routes: Routes = [
   {path : "login", component: LoginComponent, canActivate: [NonauthGuard] },
   {path : "register", component: RegisterComponent, canActivate: [NonauthGuard]},
   {path : "trading" , component : TradingComponent , canActivate: [AuthGuard]},
-  {path : "prediction" , component : PredictionComponent , canActivate: [AuthGuard]},
   {path : "academy" , component : AcademyComponent , canActivate: [AuthGuard], pathMatch: 'full'},
   {path : "academy/:id" , component : AcademyComponent , canActivate: [AuthGuard]}
 ];
