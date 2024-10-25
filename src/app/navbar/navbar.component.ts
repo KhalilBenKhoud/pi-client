@@ -31,4 +31,6 @@ export class NavbarComponent {
       error => {  console.log(error) ;}
     )
   }
+
+  
 }

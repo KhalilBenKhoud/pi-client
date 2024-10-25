@@ -1,0 +1,26 @@
+
+<div #chartContainer>
+  <div>
+  <label for="ticker">Ticker:</label>
+  <input id="ticker" [(ngModel)]="ticker" placeholder="Enter ticker (e.g., AAPL)" />
+
+  <label for="timeframe">Timeframe:</label>
+  <select id="timeframe" [(ngModel)]="timeframe">
+    <option value="1min">1 Minute</option>
+    <option value="5min">5 Minutes</option>
+    <option value="15min">15 Minutes</option>
+    <option value="30min">30 Minutes</option>
+    <option value="1hour">1 Hour</option>
+    <option value="4hour">4 Hours</option>
+  </select>
+
+  <label for="fromDate">From Date:</label>
+  <input id="fromDate" type="date" [(ngModel)]="fromDate" />
+
+  <label for="toDate">To Date:</label>
+  <input id="toDate" type="date" [(ngModel)]="toDate" />
+
+  <button (click)="onFetchData()">Fetch Data</button>
+</div>
+
+</div>

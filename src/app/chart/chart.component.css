@@ -1,0 +1,9 @@
+/* chart.component.css */
+#chartContainer {
+  width: 100%;
+  height: 400px; /* or a specific height */
+  position: relative;
+  margin: auto; /* Center horizontally */
+  background-color: #fff; /* Set a background color */
+  border: 1px solid #ccc; /* Optional border for visibility */
+}

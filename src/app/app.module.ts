@@ -22,6 +22,8 @@ import { AuthGuard } from './auth.guard';
 import { NonauthGuard } from './nonauth.guard';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { ChartComponent } from './chart/chart.component';
+import { StockChartsComponent } from './stock-charts/stock-charts.component';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     RegisterComponent,
     NavbarComponent,
     FooterComponent,
-    TradingComponent
+    TradingComponent,
+    ChartComponent,
+    StockChartsComponent
   ],
   imports: [
     BrowserModule,
