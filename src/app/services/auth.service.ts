@@ -28,12 +28,12 @@ export class AuthService {
   }
 
   refreshToken() {
-    return this.http.get(`${environment.BaseApiUrl}/auth/refresh_token`,{ headers : this.headers , withCredentials: true  })
+    return this.http.post(`${environment.BaseApiUrl}/auth/refresh_token`,{},{ headers : this.headers , withCredentials: true  })
   }
 
   logout() {
     
-    return this.http.post(`${environment.BaseApiUrl}/auth/logout`,{ headers : this.headers , withCredentials: true  }) 
+    return this.http.post(`${environment.BaseApiUrl}/auth/logout`,{},{ headers : this.headers , withCredentials: true  }) 
   }
 
 

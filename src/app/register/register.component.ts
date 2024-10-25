@@ -3,12 +3,14 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { AuthService } from '../services/auth.service';
+import { animations } from '../utils/animations';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
-  providers :  [MessageService]
+  providers :  [MessageService],
+  animations: animations
 })
 export class RegisterComponent {
   username !: string ;

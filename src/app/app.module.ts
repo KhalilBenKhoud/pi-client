@@ -24,6 +24,12 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { ChartComponent } from './chart/chart.component';
 import { StockChartsComponent } from './stock-charts/stock-charts.component';
+import { AcademyComponent } from './academy/academy.component';
+import { SafePipe } from './safe.pipe';
+import { NbThemeModule } from '@nebular/theme';
+import {NbStepperModule, NbCardModule, NbButtonModule,NbLayoutModule} from '@nebular/theme';
+import { QuizComponent } from './academy/quiz/quiz.component';
+import { RadioButtonModule } from 'primeng/radiobutton';
 
 
 @NgModule({
@@ -36,7 +42,10 @@ import { StockChartsComponent } from './stock-charts/stock-charts.component';
     FooterComponent,
     TradingComponent,
     ChartComponent,
-    StockChartsComponent
+    StockChartsComponent,
+    AcademyComponent,
+    SafePipe,
+    QuizComponent
   ],
   imports: [
     BrowserModule,
@@ -49,8 +58,13 @@ import { StockChartsComponent } from './stock-charts/stock-charts.component';
     SelectButtonModule,
     HttpClientModule,
     CarouselModule,
-    FontAwesomeModule
-    
+    FontAwesomeModule,
+    NbThemeModule.forRoot(),
+    NbStepperModule,
+    NbCardModule, 
+    NbButtonModule,
+    NbLayoutModule,
+    RadioButtonModule
   ],
   providers: [    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true } , AuthGuard , NonauthGuard ],
   bootstrap: [AppComponent]

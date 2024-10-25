@@ -8,6 +8,7 @@ import { NonauthGuard } from './nonauth.guard';
 import { AuthGuard } from './auth.guard';
 import { ChartComponent } from './chart/chart.component';
 import { StockChartsComponent } from './stock-charts/stock-charts.component';
+import { AcademyComponent } from './academy/academy.component';
 
 const routes: Routes = [
   {path : "", component: HomeComponent, pathMatch: 'full' },
@@ -15,8 +16,9 @@ const routes: Routes = [
   {path : "chart", component: StockChartsComponent },
   {path : "login", component: LoginComponent, canActivate: [NonauthGuard] },
   {path : "register", component: RegisterComponent, canActivate: [NonauthGuard]},
-  {path : "trading" , component : TradingComponent , canActivate: [AuthGuard]}
-
+  {path : "trading" , component : TradingComponent , canActivate: [AuthGuard]},
+  {path : "academy" , component : AcademyComponent , canActivate: [AuthGuard], pathMatch: 'full'},
+  {path : "academy/:id" , component : AcademyComponent , canActivate: [AuthGuard]}
 ];
 
 @NgModule({
