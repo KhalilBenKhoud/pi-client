@@ -10,7 +10,9 @@ import { Router } from '@angular/router';
 export class NavbarComponent {
   constructor( public authService : AuthService, private router: Router) {}
   isScrolled !: Boolean ;
-  
+  products : any[] = [{name: 'test',category: 'test category', price : 5000}];
+  notificationsVisible: any = false ;
+
   @HostListener('window:scroll', [])
   onWindowScroll() {
     // Get the scroll position
@@ -30,5 +32,13 @@ export class NavbarComponent {
       this.router.navigate(["/home"])},
       error => {  console.log(error) ;}
     )
+  }
+
+  lastLesson() {
+    return localStorage.getItem('lastLesson') ;
+  }
+
+  toggleNotifications() {
+    this.notificationsVisible = !this.notificationsVisible;
   }
 }

@@ -16,8 +16,7 @@ const unallowedRequests = [
 	'/auth/refresh_token',
 	'/auth/register',
 	'/auth/login',
-  '/auth/logout'
-     
+  '/auth/logout'    
 ];
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -27,7 +26,7 @@ export class AuthInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     if (!unallowedRequests.includes(request.url.substring(`${environment.BaseApiUrl}`.length))) {
-      console.log('Request URL:', request.url);
+      console.log('Request URL:', request.url.substring(`${environment.BaseApiUrl}`.length));
       console.log('Base URL Length:', `${environment.BaseApiUrl}`.length);
 
       const token = localStorage.getItem('accessToken');
