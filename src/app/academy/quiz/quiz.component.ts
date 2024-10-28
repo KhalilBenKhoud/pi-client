@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, Input, QueryList, ViewChildren } from '@angular/core';
 import { MessageService } from 'primeng/api';
 
 @Component({
@@ -10,7 +10,9 @@ import { MessageService } from 'primeng/api';
 export class QuizComponent {
     @Input() question: string ="" ;
     userAnswer !: string ;
-    correctAnswer : string = 'Onion';
+    @Input() correctAnswer !: string ;
+    @Input() choices !: string[] ;
+    @ViewChildren('options') options !: QueryList<ElementRef> ;
 
     constructor(private messageService: MessageService) {}
 
@@ -23,5 +25,15 @@ export class QuizComponent {
     submitAnswer() {
           if(this.userAnswer === this.correctAnswer)
             this.showSuccess('great ! correct answer !')
+          else this.showWarn('Wrong! try again !')
+    }
+
+    showCorrectAnswer() {
+       let correct = this.options.find((e : ElementRef) => e.nativeElement.innerText.trim() === this.correctAnswer)
+       if(correct)  {
+        correct.nativeElement.style.color = 'green' ;
+        correct.nativeElement.style.fontWeight = 1000 ;
+       }
+      
     }
 }

@@ -28,6 +28,8 @@ import { NbThemeModule } from '@nebular/theme';
 import {NbStepperModule, NbCardModule, NbButtonModule,NbLayoutModule} from '@nebular/theme';
 import { QuizComponent } from './academy/quiz/quiz.component';
 import { RadioButtonModule } from 'primeng/radiobutton';
+import { OrderListModule } from 'primeng/orderlist';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 
 @NgModule({
@@ -41,7 +43,8 @@ import { RadioButtonModule } from 'primeng/radiobutton';
     TradingComponent,
     AcademyComponent,
     SafePipe,
-    QuizComponent
+    QuizComponent,
+    NotificationsComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +63,8 @@ import { RadioButtonModule } from 'primeng/radiobutton';
     NbCardModule, 
     NbButtonModule,
     NbLayoutModule,
-    RadioButtonModule
+    RadioButtonModule,
+    OrderListModule
   ],
   providers: [    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true } , AuthGuard , NonauthGuard ],
   bootstrap: [AppComponent]
