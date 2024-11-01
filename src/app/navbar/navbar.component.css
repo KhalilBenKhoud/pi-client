@@ -10,17 +10,19 @@ nav {
     transition: box-shadow 0.3s ease-in-out;
    height: 70px;
    overflow: hidden;
+
 }
 .scrolled {
  
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Add shadow */
     height: 60px;
-  
+   
   }
   
 .links {
     display: flex;
     gap : 30px ;
+    position: relative;
 }
 :host ::ng-deep .register{
     background: gray;
@@ -29,4 +31,10 @@ nav {
         background-color: whitesmoke;
         color : black ;
     }
+  }
+
+  .notifications-container {
+      position: fixed;
+      top: 1570px ;
+      right : 0 ;
   }

@@ -2,49 +2,21 @@
 <div class="container">
     <h4>{{question}}</h4>
   
-        <div class="flex align-items-center">
-            <p-radioButton 
-                name="pizza" 
-                value="Cheese" 
+        <div class="flex align-items-center" *ngFor="let choice of choices" >
+            <p-radioButton
+                name="userAnswer" 
+                [value]="choice" 
                 [(ngModel)]="userAnswer"
-                inputId="ingredient1" />
-            <label for="ingredient1" class="ml-2">
-                Cheese
+
+             />
+            <label for="choice" class="ml-2" #options>
+                {{choice}}
             </label>
         </div>
-        
-        <div class="flex align-items-center">
-            <p-radioButton 
-                name="pizza" 
-                value="Mushroom" 
-                [(ngModel)]="userAnswer"
-                inputId="ingredient2" />
-            <label for="ingredient2" class="ml-2">
-                Mushroom
-            </label>
+         <div class="btnContainer">
+        <p-button label="submit" (onClick)="submitAnswer()" icon="pi pi-send" />
+        <p-button label="solution"  styleClass="green" (onClick)="showCorrectAnswer()" icon="pi pi-lightbulb" />
         </div>
-        
-        <div class="flex align-items-center">
-            <p-radioButton 
-                name="pizza" 
-                value="Pepper" 
-                [(ngModel)]="userAnswer"
-                inputId="ingredient3" />
-            <label for="ingredient3" class="ml-2">
-                Pepper
-            </label>
-        </div>
-    
-        <div class="flex align-items-center">
-            <p-radioButton 
-                name="pizza" 
-                value="Onion" 
-                [(ngModel)]="userAnswer"
-                inputId="ingredient4" />
-            <label for="ingredient4" class="ml-2">
-                Onion
-            </label>
-        </div>
-        <p-button label="submit<" (onClick)="submitAnswer()" />
+
     </div>
 
