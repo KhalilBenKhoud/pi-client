@@ -5,6 +5,8 @@
     <p-button label="register"   *ngIf="!authService.isAuthenticated()" routerLink="register" styleClass="register"  icon="pi pi-user-plus" />
     <p-button label="trading"    *ngIf="authService.isAuthenticated()" routerLink="trading"   icon="pi pi-euro" />
     <p-button label="academy"    *ngIf="authService.isAuthenticated()" [routerLink]="['/academy',1]"   icon="pi pi-graduation-cap" />
+ 
+
     <p-button label="logout"  (click)="logout()"   *ngIf="authService.isAuthenticated()"  styleClass="register"   icon="pi pi-sign-out" />
 
 </div>

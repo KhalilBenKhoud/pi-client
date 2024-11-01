@@ -1,6 +1,8 @@
 import { Component ,HostListener } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
+import { ButtonModule } from 'primeng/button';
+
 
 @Component({
   selector: 'app-navbar',
