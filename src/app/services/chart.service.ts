@@ -7,17 +7,23 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class ChartService {
-  private apiUrl = 'http://127.0.0.1:8000/market/intraday';
+  private apiUrl = 'http://127.0.0.1:8000/market';
 
   constructor(private http: HttpClient) {}
 
   // Fetch intraday data for a given symbol
-  getIntradayData(symbol: string, timeframe: string = '5min'): Observable<any[]> {
-    return this.http
-      .get<any[]>((`${this.apiUrl}/${symbol}?timeframe=${timeframe}`), { withCredentials: true })
-      .pipe(catchError(this.handleError));
+  getIntradayData(
+    symbol: string,
+    timeframe: string,
+    from?: string,
+    to?: string
+  ): Observable<any> {
+    let url = `${this.apiUrl}/intraday/${symbol}?timeframe=${timeframe}`;
+    if (from && to) {
+      url += `&from=${from}&to=${to}`;
+    }
+    return this.http.get<any>(url);
   }
-
   // Handle potential errors from the backend
   private handleError(error: HttpErrorResponse) {
     console.error('API Error:', error);

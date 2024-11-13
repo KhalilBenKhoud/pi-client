@@ -4,29 +4,36 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position : fixed ;
+    position: fixed;
     width: 100%;
     z-index: 20;
     transition: box-shadow 0.3s ease-in-out;
-   height: 70px;
-   overflow: hidden;
+    height: 70px;
+    overflow: hidden;
 }
+
 .scrolled {
- 
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Add shadow */
     height: 60px;
-  
-  }
-  
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    margin-right: 20px; /* Adjust spacing between logo and "Charts" button */
+    gap: 30px;
+}
+
 .links {
     display: flex;
-    gap : 30px ;
+    gap: 30px;
 }
-:host ::ng-deep .register{
+
+:host ::ng-deep .register {
     background: gray;
     border-color: gray;
-    &:hover {
-        background-color: whitesmoke;
-        color : black ;
-    }
-  }
+}
+:host ::ng-deep .register:hover {
+    background-color: whitesmoke;
+    color: black;
+}

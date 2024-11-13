@@ -15,3 +15,25 @@ div[chartContainer] {
   height: auto;
   margin: 20px 0;
 }
+
+.container {
+  padding: 20px;
+}
+
+.controls {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.dropdown {
+  width: 200px;
+}
+

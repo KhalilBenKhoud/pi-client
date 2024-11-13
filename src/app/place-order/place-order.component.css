@@ -1,0 +1,29 @@
+/* order.component.css */
+.container {
+  max-width: 600px;
+  margin: 20px auto;
+}
+h2{
+  color: lightcyan;
+}
+
+form div {
+  margin-bottom: 10px;
+}
+
+table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+}

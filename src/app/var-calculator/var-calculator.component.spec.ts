@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ChartComponent } from './chart.component';
+import { VarCalculatorComponent } from './var-calculator.component';
 
-describe('ChartComponent', () => {
-  let component: ChartComponent;
-  let fixture: ComponentFixture<ChartComponent>;
+describe('VarCalculatorComponent', () => {
+  let component: VarCalculatorComponent;
+  let fixture: ComponentFixture<VarCalculatorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ChartComponent ]
+      declarations: [ VarCalculatorComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ChartComponent);
+    fixture = TestBed.createComponent(VarCalculatorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
