@@ -24,12 +24,15 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { AcademyComponent } from './academy/academy.component';
 import { SafePipe } from './safe.pipe';
-import { NbThemeModule } from '@nebular/theme';
+import { NbChatModule, NbThemeModule } from '@nebular/theme';
 import {NbStepperModule, NbCardModule, NbButtonModule,NbLayoutModule} from '@nebular/theme';
 import { QuizComponent } from './academy/quiz/quiz.component';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { OrderListModule } from 'primeng/orderlist';
 import { NotificationsComponent } from './notifications/notifications.component';
+import { TrainingComponent } from './training/training.component';
+import { CurrencyComponent } from './currency/currency.component';
+import { ChatbotComponent } from './chatbot/chatbot.component';
 
 
 @NgModule({
@@ -44,7 +47,10 @@ import { NotificationsComponent } from './notifications/notifications.component'
     AcademyComponent,
     SafePipe,
     QuizComponent,
-    NotificationsComponent
+    NotificationsComponent,
+    TrainingComponent,
+    CurrencyComponent,
+    ChatbotComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +70,8 @@ import { NotificationsComponent } from './notifications/notifications.component'
     NbButtonModule,
     NbLayoutModule,
     RadioButtonModule,
-    OrderListModule
+    OrderListModule,
+    NbChatModule
   ],
   providers: [    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true } , AuthGuard , NonauthGuard ],
   bootstrap: [AppComponent]
