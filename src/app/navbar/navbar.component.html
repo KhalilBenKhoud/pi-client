@@ -1,20 +1,18 @@
+
 <nav [ngClass]="isScrolled && 'scrolled'" >
-<img src="../../assets/images/logo.png"  routerLink="home" style="cursor: pointer; height: 100px">
-<div class="links">
-    <p-button  label="Login"  *ngIf="!authService.isAuthenticated()" routerLink="login" icon="pi pi-sign-in" />
-    <p-button label="register"   *ngIf="!authService.isAuthenticated()" routerLink="register" styleClass="register"  icon="pi pi-user-plus" />
-    <p-button label="trading"    *ngIf="authService.isAuthenticated()" routerLink="trading"   icon="pi pi-euro" />
-    <p-button label="academy"    *ngIf="authService.isAuthenticated()" [routerLink]="['/academy',1]"   icon="pi pi-graduation-cap" />
- 
-
-    <p-button label="logout"  (click)="logout()"   *ngIf="authService.isAuthenticated()"  styleClass="register"   icon="pi pi-sign-out" />
-    <p-button label="academy"    *ngIf="authService.isAuthenticated()" [routerLink]="['/academy',lastLesson()]"   icon="pi pi-graduation-cap" />
-    <p-button icon="pi pi-bell" (onClick)="toggleNotifications()"/>
-   <app-notifications [notificationsVisible]="notificationsVisible"></app-notifications>
-
-    <p-button label="logout"  (click)="logout()"   *ngIf="authService.isAuthenticated()"  styleClass="register"   icon="pi pi-sign-out" />
+    <img src="../../assets/images/logo.png"  routerLink="home" style="cursor: pointer; height: 100px">
+    <div class="links">
+        <p-button  label="Login"  *ngIf="!authService.isAuthenticated()" routerLink="login" icon="pi pi-sign-in" />
+        <p-button label="register"   *ngIf="!authService.isAuthenticated()" routerLink="register" styleClass="register"  icon="pi pi-user-plus" />
+        <p-button label="trading"    *ngIf="authService.isAuthenticated()" routerLink="trading"   icon="pi pi-euro" />
+        <p-button label="dashboard"    *ngIf="authService.isAuthenticated()" routerLink="dashboard"   icon="pi pi-euro" />
+        <p-button label="academy"    *ngIf="authService.isAuthenticated()" [routerLink]="['/academy',lastLesson()]"   icon="pi pi-graduation-cap" />
+        <p-button icon="pi pi-bell" (onClick)="toggleNotifications()"/>
+       <app-notifications [notificationsVisible]="notificationsVisible"></app-notifications>
     
-</div>
-
-
-</nav>
+        <p-button label="logout"  (click)="logout()"   *ngIf="authService.isAuthenticated()"  styleClass="register"   icon="pi pi-sign-out" />
+        
+    </div>
+    
+    
+    </nav>

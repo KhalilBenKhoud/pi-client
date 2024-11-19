@@ -30,6 +30,7 @@ import { QuizComponent } from './academy/quiz/quiz.component';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { OrderListModule } from 'primeng/orderlist';
 import { NotificationsComponent } from './notifications/notifications.component';
+import { dashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { NotificationsComponent } from './notifications/notifications.component'
     AcademyComponent,
     SafePipe,
     QuizComponent,
-    NotificationsComponent
+    NotificationsComponent,
+    dashboardComponent,
   ],
   imports: [
     BrowserModule,

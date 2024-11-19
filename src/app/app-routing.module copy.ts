@@ -9,7 +9,6 @@ import { AuthGuard } from './auth.guard';
 import { AcademyComponent } from './academy/academy.component';
 import { dashboardComponent } from './dashboard/dashboard.component';
 
-
 const routes: Routes = [
   {path : "", component: HomeComponent, pathMatch: 'full' },
   {path : "home", component: HomeComponent },
