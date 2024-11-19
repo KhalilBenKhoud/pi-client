@@ -18,6 +18,8 @@ const unallowedRequests = [
 	'/auth/login',
   '/auth/logout'    
 ];
+
+const externalApi = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest'
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
   constructor(private authService: AuthService) {}
@@ -25,7 +27,7 @@ export class AuthInterceptor implements HttpInterceptor {
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    if (!unallowedRequests.includes(request.url.substring(`${environment.BaseApiUrl}`.length))) {
+    if (!unallowedRequests.includes(request.url.substring(`${environment.BaseApiUrl}`.length)) && !request.url.includes(externalApi)) {
       console.log('Request URL:', request.url.substring(`${environment.BaseApiUrl}`.length));
       console.log('Base URL Length:', `${environment.BaseApiUrl}`.length);
 

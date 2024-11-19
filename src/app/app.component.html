@@ -2,5 +2,6 @@
 <app-navbar></app-navbar>
 <section class="page nb-theme-default">
 <router-outlet></router-outlet>
+<app-chatbot *ngIf="authService.isAuthenticated()"></app-chatbot>
 </section>
 
