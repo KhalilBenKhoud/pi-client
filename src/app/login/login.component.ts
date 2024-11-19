@@ -2,13 +2,15 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { AuthService } from '../services/auth.service';
+import { animations } from '../utils/animations';
 
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers :  [MessageService]
+  providers :  [MessageService],
+  animations: animations
  
 })
 export class LoginComponent {

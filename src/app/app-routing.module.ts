@@ -8,6 +8,7 @@ import { NonauthGuard } from './nonauth.guard';
 import { AuthGuard } from './auth.guard';
 import { PredictionComponent } from './prediction/prediction.component';
 import { AllComponent } from './all/all.component';
+import { AcademyComponent } from './academy/academy.component';
 
 const routes: Routes = [
   {path : "", component: HomeComponent, pathMatch: 'full' },
@@ -16,10 +17,12 @@ const routes: Routes = [
   {path : "register", component: RegisterComponent, canActivate: [NonauthGuard]},
   {path : "trading" , component : TradingComponent , canActivate: [AuthGuard]},
   {path : "prediction" , component : PredictionComponent , canActivate: [AuthGuard]},
-  {path : "all" , component : AllComponent , canActivate: [AuthGuard]}
+  {path : "all" , component : AllComponent , canActivate: [AuthGuard]},
 
 
 
+  {path : "academy" , component : AcademyComponent , canActivate: [AuthGuard], pathMatch: 'full'},
+  {path : "academy/:id" , component : AcademyComponent , canActivate: [AuthGuard]}
 ];
 
 @NgModule({

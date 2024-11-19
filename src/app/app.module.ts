@@ -31,6 +31,15 @@ import { StrategyComponent } from './strategy/strategy.component';
 import { AnalystRecComponent } from './analyst-rec/analyst-rec.component';
 import { AllComponent } from './all/all.component';
 
+import { AcademyComponent } from './academy/academy.component';
+import { SafePipe } from './safe.pipe';
+import { NbThemeModule } from '@nebular/theme';
+import {NbStepperModule, NbCardModule, NbButtonModule,NbLayoutModule} from '@nebular/theme';
+import { QuizComponent } from './academy/quiz/quiz.component';
+import { RadioButtonModule } from 'primeng/radiobutton';
+//import { ChartModule } from 'primeng/chart';
+
+
 
 
 @NgModule({
@@ -51,6 +60,11 @@ import { AllComponent } from './all/all.component';
     
     
   
+    AcademyComponent,
+    SafePipe,
+    QuizComponent,
+    
+
   ],
   imports: [
     BrowserModule,
@@ -63,8 +77,14 @@ import { AllComponent } from './all/all.component';
     SelectButtonModule,
     HttpClientModule,
     CarouselModule,
-    FontAwesomeModule
-    
+    FontAwesomeModule,
+    NbThemeModule.forRoot(),
+    NbStepperModule,
+    NbCardModule, 
+    NbButtonModule,
+    NbLayoutModule,
+    RadioButtonModule,
+  //  ChartModule
   ],
   providers: [    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true } , AuthGuard , NonauthGuard ],
   bootstrap: [AppComponent]
