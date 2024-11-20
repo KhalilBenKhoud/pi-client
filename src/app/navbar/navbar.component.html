@@ -7,7 +7,7 @@
     <p-button label="academy"    *ngIf="authService.isAuthenticated()" [routerLink]="['/academy',lastLesson()]"   icon="pi pi-graduation-cap" />
     <p-button label="training"    *ngIf="authService.isAuthenticated()"  routerLink="training"  icon="pi pi-graduation-cap" />
     <p-button label="currency"    *ngIf="authService.isAuthenticated()"  routerLink="currency"  icon="pi pi-dollar" />
-
+    <p-button label="notes"    *ngIf="authService.isAuthenticated()"  routerLink="notes"  icon="pi pi-clipboard" />
     <p-button icon="pi pi-bell" (onClick)="toggleNotifications()" *ngIf="authService.isAuthenticated()"/>
    <app-notifications [notificationsVisible]="notificationsVisible"></app-notifications>
 

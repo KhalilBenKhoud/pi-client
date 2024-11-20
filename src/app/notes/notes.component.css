@@ -1,0 +1,16 @@
+.notesContainer {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px ;
+}
+.title {
+   color: gray;
+   font-style: italic;
+}
+.notesImg {
+    width: 200px;
+    height: 200px;
+}
