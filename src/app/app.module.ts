@@ -33,6 +33,8 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { TrainingComponent } from './training/training.component';
 import { CurrencyComponent } from './currency/currency.component';
 import { ChatbotComponent } from './chatbot/chatbot.component';
+import { NotesComponent } from './notes/notes.component';
+import { QuillModule } from 'ngx-quill'
 
 
 @NgModule({
@@ -50,7 +52,8 @@ import { ChatbotComponent } from './chatbot/chatbot.component';
     NotificationsComponent,
     TrainingComponent,
     CurrencyComponent,
-    ChatbotComponent
+    ChatbotComponent,
+    NotesComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +74,8 @@ import { ChatbotComponent } from './chatbot/chatbot.component';
     NbLayoutModule,
     RadioButtonModule,
     OrderListModule,
-    NbChatModule
+    NbChatModule,
+    QuillModule.forRoot()
   ],
   providers: [    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true } , AuthGuard , NonauthGuard ],
   bootstrap: [AppComponent]

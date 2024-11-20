@@ -9,6 +9,7 @@ import { AuthGuard } from './auth.guard';
 import { AcademyComponent } from './academy/academy.component';
 import { TrainingComponent } from './training/training.component';
 import { CurrencyComponent } from './currency/currency.component';
+import { NotesComponent } from './notes/notes.component';
 
 const routes: Routes = [
   {path : "", component: HomeComponent, pathMatch: 'full' },
@@ -18,7 +19,7 @@ const routes: Routes = [
   {path : "trading" , component : TradingComponent , canActivate: [AuthGuard]},
   {path : "training" , component : TrainingComponent , canActivate: [AuthGuard]},
   {path : "currency" , component : CurrencyComponent , canActivate: [AuthGuard]},
-
+  {path : "notes" , component : NotesComponent , canActivate: [AuthGuard]},
   {path : "academy" , component : AcademyComponent , canActivate: [AuthGuard], pathMatch: 'full'},
   {path : "academy/:id" , component : AcademyComponent , canActivate: [AuthGuard]}
 ];
