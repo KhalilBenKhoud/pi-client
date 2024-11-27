@@ -43,4 +43,5 @@ export class NavbarComponent {
   toggleNotifications() {
     this.notificationsVisible = !this.notificationsVisible;
   }
+  
 }

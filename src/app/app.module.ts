@@ -22,6 +22,7 @@ import { AuthGuard } from './auth.guard';
 import { NonauthGuard } from './nonauth.guard';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { StockChartsComponent } from './stock-charts/stock-charts.component';
 import { AcademyComponent } from './academy/academy.component';
 import { SafePipe } from './safe.pipe';
 import { NbThemeModule } from '@nebular/theme';
@@ -31,6 +32,18 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { OrderListModule } from 'primeng/orderlist';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { dashboardComponent } from './dashboard/dashboard.component';
+import { ForcastingComponent } from './forcasting/forcasting.component';
+import { PlaceOrderComponent } from './place-order/place-order.component';
+import { UserOrdersComponent } from './user-orders/user-orders.component';
+import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
+import { TableModule } from 'primeng/table';
+import { DropdownModule } from 'primeng/dropdown';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { TradingPanelComponent } from './trading-panel/trading-panel.component';
+import { CalendarModule } from 'primeng/calendar';
+import { VarCalculatorComponent } from './var-calculator/var-calculator.component';
+import { CardModule } from 'primeng/card';
 
 
 @NgModule({
@@ -42,11 +55,17 @@ import { dashboardComponent } from './dashboard/dashboard.component';
     NavbarComponent,
     FooterComponent,
     TradingComponent,
+    StockChartsComponent,
     AcademyComponent,
     SafePipe,
     QuizComponent,
     NotificationsComponent,
     dashboardComponent,
+    ForcastingComponent,
+    PlaceOrderComponent,
+    UserOrdersComponent,
+    TradingPanelComponent,
+    VarCalculatorComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,7 +85,14 @@ import { dashboardComponent } from './dashboard/dashboard.component';
     NbButtonModule,
     NbLayoutModule,
     RadioButtonModule,
-    OrderListModule
+    OrderListModule,
+    MessagesModule,
+    MessageModule,
+    TableModule,
+    InputNumberModule,
+    DropdownModule,
+    CalendarModule,
+    CardModule,
   ],
   providers: [    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true } , AuthGuard , NonauthGuard ],
   bootstrap: [AppComponent]
