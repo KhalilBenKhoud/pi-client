@@ -34,7 +34,10 @@ import { TrainingComponent } from './training/training.component';
 import { CurrencyComponent } from './currency/currency.component';
 import { ChatbotComponent } from './chatbot/chatbot.component';
 import { NotesComponent } from './notes/notes.component';
-import { QuillModule } from 'ngx-quill'
+import { QuillModule } from 'ngx-quill';
+import { NewsComponent } from './news/news.component'
+import { DragDropModule } from 'primeng/dragdrop';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -53,7 +56,8 @@ import { QuillModule } from 'ngx-quill'
     TrainingComponent,
     CurrencyComponent,
     ChatbotComponent,
-    NotesComponent
+    NotesComponent,
+    NewsComponent
   ],
   imports: [
     BrowserModule,
@@ -75,6 +79,8 @@ import { QuillModule } from 'ngx-quill'
     RadioButtonModule,
     OrderListModule,
     NbChatModule,
+    DragDropModule,
+    CommonModule,
     QuillModule.forRoot()
   ],
   providers: [    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true } , AuthGuard , NonauthGuard ],
