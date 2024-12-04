@@ -1,0 +1,51 @@
+<div class="performance-dashboard">
+  <!-- Performance Metrics Summary -->
+  <h2>Performance Metrics</h2>
+  <div class="grid">
+    <div class="col-4">
+      <p-card>
+        <div class="statistic">
+          <span class="stat-label">Total Trades:</span>
+          <span class="stat-value">{{ metrics.total_trades || 0 }}</span>
+        </div>
+      </p-card>
+    </div>
+    <div class="col-4">
+      <p-card>
+        <div class="statistic">
+          <span class="stat-label">Profit:</span>
+          <span class="stat-value">{{ metrics.total_profit_loss | currency }}</span>
+        </div>
+      </p-card>
+    </div>
+    <div class="col-4">
+      <p-card>
+        <div class="statistic">
+          <span class="stat-label">Win Ratio:</span>
+          <span class="stat-value">{{ metrics.win_ratio || 0 }}%</span>
+        </div>
+      </p-card>
+    </div>
+  </div>
+
+  <!-- Charts Row -->
+  <div class="chart-row">
+    <!-- Profit/Loss Distribution Chart -->
+    <div class="chart-container">
+      <h3>Profit/Loss Distribution</h3>
+      <p-chart type="pie" [data]="profitChartData" style="width: 100%; height: 300px;"></p-chart>
+    </div>
+
+    <!-- Win/Loss Ratio Chart -->
+    <div class="chart-container">
+      <h3>Win/Loss Ratio</h3>
+      <p-chart type="pie" [data]="winRatioChartData" style="width: 100%; height: 300px;"></p-chart>
+    </div>
+
+    <!-- Recommendation Match Ratio Chart -->
+    <div class="chart-container">
+      <h3>Recommendation Match Ratio</h3>
+      <p-chart type="pie" [data]="recommendationMatchData" style="width: 100%; height: 300px;"></p-chart>
+    </div>
+  </div>
+</div>

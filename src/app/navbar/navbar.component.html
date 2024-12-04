@@ -1,7 +1,7 @@
 <nav [ngClass]="isScrolled && 'scrolled'">
     <img src="../../assets/images/logo.png" routerLink="home" style="cursor: pointer; height: 100px">
     <div class="nav-left">
-        <p-button label="Charts" routerLink="chart" icon="pi pi-chart-line" />
+        <p-button label="Charts" *ngIf="authService.isAuthenticated()" routerLink="chart" icon="pi pi-chart-line" />
         <p-button label="Trading" *ngIf="authService.isAuthenticated()" routerLink="trading" icon="pi pi-euro" />
         <p-button label="Forecast" *ngIf="authService.isAuthenticated()" routerLink="forecast" icon="pi pi-eye" />
         <p-button label="Academy" *ngIf="authService.isAuthenticated()" [routerLink]="['/academy',1]" icon="pi pi-graduation-cap" />

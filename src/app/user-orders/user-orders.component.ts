@@ -16,6 +16,8 @@ export class UserOrdersComponent implements OnInit{
     order_type: 'market',
     action: 'buy',
     price: undefined,
+    take_profit: undefined,
+    stop_loss: undefined
   };
   errorMessage = '';
   constructor(private orderService: OrderService) {}

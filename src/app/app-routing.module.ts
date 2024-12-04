@@ -13,11 +13,23 @@ import { PlaceOrderComponent } from './place-order/place-order.component';
 import { UserOrdersComponent } from './user-orders/user-orders.component';
 import { TradingPanelComponent } from './trading-panel/trading-panel.component';
 import { VarCalculatorComponent } from './var-calculator/var-calculator.component';
+import { MonteCarloComponent } from './monte-carlo/monte-carlo.component';
+import { ScenarioReplayComponentComponent } from './scenario-replay-component/scenario-replay-component.component';
+import { PerformanceDashboardComponentComponent } from './performance-dashboard-component/performance-dashboard-component.component';
+import { MarketChartComponentComponent } from './market-chart-component/market-chart-component.component';
+import { HistoricalDataTableComponentComponent } from './historical-data-table-component/historical-data-table-component.component';
 
 const routes: Routes = [
   {path : "", component: HomeComponent, pathMatch: 'full' },
   {path : "home", component: HomeComponent },
+
+  {path : "scenario-replay", component: ScenarioReplayComponentComponent },
+  {path : "performance-dashboard", component: PerformanceDashboardComponentComponent },
+  {path : "chart-scenario", component: MarketChartComponentComponent },
+  {path : "historical-data", component: HistoricalDataTableComponentComponent },
+
   {path : "chart", component: StockChartsComponent },
+  {path : "monte-carlo", component: MonteCarloComponent },
   {path : "forecast", component: ForcastingComponent },
   {path : "var-calculator", component: VarCalculatorComponent },
   {path : "place-order", component: TradingPanelComponent},
