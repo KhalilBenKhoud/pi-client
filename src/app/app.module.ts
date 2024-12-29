@@ -11,8 +11,10 @@ import { RegisterComponent } from './register/register.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { InputTextModule } from 'primeng/inputtext';
-import {ToastModule} from 'primeng/toast'
-import {SelectButtonModule} from 'primeng/selectbutton'
+import {ToastModule} from 'primeng/toast';
+import {SelectButtonModule} from 'primeng/selectbutton';
+
+
 
 import { FormsModule } from '@angular/forms';
 import { TradingComponent } from './trading/trading.component';
@@ -22,6 +24,13 @@ import { AuthGuard } from './auth.guard';
 import { NonauthGuard } from './nonauth.guard';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { PredictionComponent } from './prediction/prediction.component';
+import { ComparisonComponent } from './comparison/comparison.component';
+import { RiskComponent } from './risk/risk.component';
+import { StrategyComponent } from './strategy/strategy.component';
+import { AnalystRecComponent } from './analyst-rec/analyst-rec.component';
+import { AllComponent } from './all/all.component';
+
 import { StockChartsComponent } from './stock-charts/stock-charts.component';
 import { AcademyComponent } from './academy/academy.component';
 import { SafePipe } from './safe.pipe';
@@ -29,6 +38,9 @@ import { NbChatModule, NbThemeModule } from '@nebular/theme';
 import {NbStepperModule, NbCardModule, NbButtonModule,NbLayoutModule} from '@nebular/theme';
 import { QuizComponent } from './academy/quiz/quiz.component';
 import { RadioButtonModule } from 'primeng/radiobutton';
+//import { ChartModule } from 'primeng/chart';
+
+
 import { ForcastingComponent } from './forcasting/forcasting.component';
 import { PlaceOrderComponent } from './place-order/place-order.component';
 import { UserOrdersComponent } from './user-orders/user-orders.component';
@@ -76,6 +88,20 @@ import { CommonModule } from '@angular/common';
     NavbarComponent,
     FooterComponent,
     TradingComponent,
+    PredictionComponent,
+    ComparisonComponent,
+    RiskComponent,
+    StrategyComponent,
+    AnalystRecComponent,
+    AllComponent,
+    
+    
+  
+    AcademyComponent,
+    SafePipe,
+    QuizComponent,
+    
+
     StockChartsComponent,
     AcademyComponent,
     SafePipe,
@@ -117,6 +143,7 @@ import { CommonModule } from '@angular/common';
     NbButtonModule,
     NbLayoutModule,
     RadioButtonModule,
+  //  ChartModule
     MessagesModule,
     MessageModule,
     TableModule,

@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {RouterModule, Routes} from '@angular/router'
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { TradingComponent } from './trading/trading.component';
 import { NonauthGuard } from './nonauth.guard';
 import { AuthGuard } from './auth.guard';
+import { PredictionComponent } from './prediction/prediction.component';
+import { AllComponent } from './all/all.component';
 import { StockChartsComponent } from './stock-charts/stock-charts.component';
 import { AcademyComponent } from './academy/academy.component';
 import { ForcastingComponent } from './forcasting/forcasting.component';
@@ -42,10 +44,18 @@ const routes: Routes = [
   {path : "register", component: RegisterComponent, canActivate: [NonauthGuard]},
   {path : "trading" , component : TradingPanelComponent , canActivate: [AuthGuard]},
   {path : "trading" , component : TradingComponent , canActivate: [AuthGuard]},
+<<<<<<< HEAD
+  {path : "prediction" , component : PredictionComponent , canActivate: [AuthGuard]},
+  {path : "all" , component : AllComponent , canActivate: [AuthGuard]},
+
+
+
+=======
   {path : "training" , component : TrainingComponent , canActivate: [AuthGuard]},
   {path : "currency" , component : CurrencyComponent , canActivate: [AuthGuard]},
   {path : "notes" , component : NotesComponent , canActivate: [AuthGuard]},
   {path : "news" , component : NewsComponent , canActivate: [AuthGuard]},
+>>>>>>> 2ef37870ef06b8666ab453869efb6fb45d787255
   {path : "academy" , component : AcademyComponent , canActivate: [AuthGuard], pathMatch: 'full'},
   {path : "academy/:id" , component : AcademyComponent , canActivate: [AuthGuard]}
 ];
