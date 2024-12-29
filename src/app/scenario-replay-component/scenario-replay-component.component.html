@@ -1,0 +1,108 @@
+<div class="scenario-replay-container">
+  <h1>Scenario Replay</h1>
+
+  <!-- Scenario Selection -->
+  <div class="form-group">
+    <label for="scenario">Select Scenario:</label>
+    <p-dropdown
+      [options]="scenarios"
+      [(ngModel)]="selectedScenario"
+      optionLabel="name"
+      placeholder="Select Scenario"
+      (onChange)="loadScenarioData()">
+    </p-dropdown>
+  </div>
+
+  <!-- Historical Data Table -->
+  <h2>Historical Data</h2>
+  <div *ngIf="loading" class="loading">
+    <p-progressSpinner></p-progressSpinner>
+  </div>
+  <!-- <app-historical-data-table-component [scenarioId]="selectedScenario?.id" [historicalData]="historicalData" [loading]="loading"></app-historical-data-table-component> -->
+
+  <app-stock-charts></app-stock-charts>
+  <!-- Trade Form -->
+  <h2>Place a Trade</h2>
+  <form (ngSubmit)="placeTrade()">
+    <div class="form-group">
+      <label for="symbol">Symbol</label>
+      <input id="symbol" type="text" pInputText [(ngModel)]="tradeForm.symbol" name="symbol" required />
+    </div>
+    <div class="form-group">
+      <label for="action">Action</label>
+      <p-dropdown
+        [options]="[{ label: 'Buy', value: 'buy' }, { label: 'Sell', value: 'sell' }]"
+        [(ngModel)]="tradeForm.action"
+        name="action"
+      ></p-dropdown>
+    </div>
+    <div class="form-group">
+      <label for="quantity">Quantity</label>
+      <p-inputNumber [(ngModel)]="tradeForm.quantity" name="quantity" [min]="1"></p-inputNumber>
+    </div>
+    <div class="form-group">
+      <label for="price">Price</label>
+      <p-inputNumber [(ngModel)]="tradeForm.price" name="price" mode="currency" currency="USD"></p-inputNumber>
+    </div>
+    <button pButton type="submit" label="Place Trade" class="p-button-success"></button>
+  </form>
+
+
+  <!-- Trade History -->
+  <div class="trade-history">
+    <h3>Historique des Trades</h3>
+    
+    <!-- Show loading spinner -->
+    <p *ngIf="loading">Chargement des trades...</p>
+  
+    <!-- Show error message -->
+    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+  
+    <!-- Trade history table -->
+    <p-table
+  [value]="userTrades"
+  [paginator]="true"
+  [rows]="10"
+  [rowsPerPageOptions]="[5, 10, 20]"
+  [responsiveLayout]="'scroll'"
+  class="trade-history-table"
+>
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Symbol</th>
+      <th>Action</th>
+      <th>Quantité</th>
+      <th>Prix</th>
+      <th>Date</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-trade>
+    <tr>
+      <td>{{ trade.symbol }}</td>
+      <td>{{ trade.action }}</td>
+      <td>{{ trade.quantity }}</td>
+      <td>{{ trade.price | currency: 'USD' }}</td>
+      <td>{{ trade.timestamp | date: 'short' }}</td>
+    </tr>
+  </ng-template>
+</p-table>
+
+<!-- No trades found -->
+<p *ngIf="!loading && userTrades.length === 0">
+  Aucun trade trouvé pour ce scénario.
+</p>
+
+  </div>
+  
+
+  <!-- Performance Analysis -->
+  <h2>Performance Analysis</h2>
+  <button pButton label="Analyze Performance" (click)="analyzePerformance()" class="p-button-info"></button>
+  <app-performance-dashboard-component [metrics]="performanceMetrics"></app-performance-dashboard-component>
+  <app-market-chart-component 
+  *ngIf="historicalData?.length && userTrades?.length && expertTrades?.length"
+  [data]="historicalData" 
+  [userTrades]="userTrades" 
+  [expertTrades]="expertTrades">
+</app-market-chart-component>
+</div>

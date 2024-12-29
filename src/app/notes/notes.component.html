@@ -1,0 +1,45 @@
+<p-toast position="top-center" style="position: fixed; z-index: 50"></p-toast>
+
+<div class="notesContainer">
+<h1 class="title">Take notes !</h1>
+<img src="../../assets/images/gummy-blackboard.png" class="notesImg" alt="">
+<quill-editor style="width: 80%;" [(ngModel)]="noteContent"></quill-editor>
+<p-button label="save" (onClick)="onSave()" />
+
+<div class="savedContainer">
+
+<div class="savedNotes" >
+
+
+<nb-card accent="success"  *ngFor="let note of notes" [(ngModel)]="notes"
+pDraggable="notes"
+(onDragStart)="dragStart(note)"
+(onDragEnd)="dragEnd()"
+>
+    <nb-card-header>{{note.created_at}}</nb-card-header>
+    <nb-card-body>
+        <p [innerHTML]="note.content"></p>
+    </nb-card-body>
+  </nb-card>
+</div>
+
+<div class="mostImportant">
+  <div style="height: auto; border: 1px solid black;" pDroppable="notes" (onDrop)="drop()" >
+    <h3 class="text-center surface-border border-bottom-1">Most important</h3>
+    <ul style="list-style: none; padding: 5px;"  >
+       
+          <nb-card accent="info" style="width: 100%;" *ngFor="let note of selectedNotes">
+          <nb-card-header>{{note.created_at}}</nb-card-header>
+          <nb-card-body>
+              <p [innerHTML]="note.content"></p>
+          </nb-card-body>
+        </nb-card>
+        
+    </ul>
+
+</div>
+</div>
+
+</div>
+
+  

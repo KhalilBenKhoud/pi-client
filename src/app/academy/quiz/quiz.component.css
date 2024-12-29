@@ -4,3 +4,8 @@
     gap : 20px ;
     margin-bottom: 30px;
 }
+
+.btnContainer {
+    display: flex;
+    gap: 20px ;
+}

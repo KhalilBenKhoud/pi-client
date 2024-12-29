@@ -1,6 +1,12 @@
+<nb-layout>
+  <nb-layout-header fixed>
+    <app-navbar></app-navbar>
+  </nb-layout-header>
 
-<app-navbar></app-navbar>
-<section class="page nb-theme-default">
-<router-outlet></router-outlet>
-</section>
-
+  <nb-layout-column>
+    <section class="page nb-theme-default">
+      <router-outlet></router-outlet>
+    </section>
+    <app-chatbot *ngIf="authService.isAuthenticated()"></app-chatbot>
+  </nb-layout-column>
+</nb-layout>

@@ -1,0 +1,42 @@
+<div class="container">
+  <h2>Stock Charts with Intraday Data</h2>
+
+  <div class="controls">
+    <div class="field">
+      <label for="ticker">Ticker:</label>
+      <input id="ticker" pInputText [(ngModel)]="ticker" placeholder="Enter ticker (e.g., AAPL)" />
+    </div>
+
+    <div class="field">
+      <label for="timeframe">Timeframe:</label>
+      <p-dropdown
+        id="timeframe"
+        [(ngModel)]="timeframe"
+        [options]="timeframeOptions"
+        placeholder="Select Timeframe"
+        styleClass="dropdown"
+      ></p-dropdown>
+    </div>
+
+    <div class="field">
+      <label for="fromDate">From Date:</label>
+      <p-calendar id="fromDate" [(ngModel)]="fromDate" dateFormat="yy-mm-dd"></p-calendar>
+    </div>
+
+    <div class="field">
+      <label for="toDate">To Date:</label>
+      <p-calendar id="toDate" [(ngModel)]="toDate" dateFormat="yy-mm-dd"></p-calendar>
+    </div>
+
+    <div class="field">
+      <p-button label="Fetch Data" icon="pi pi-search" (click)="onFetchData()"></p-button>
+    </div>
+  </div>
+
+  <div #chartContainer style="width: 100%; height: 400px;"></div>
+
+  <br /><br />
+  <div class="tradingview-widget-container">
+    <div class="tradingview-widget-container__widget"></div>
+  </div>
+</div>

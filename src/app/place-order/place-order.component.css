@@ -1,0 +1,70 @@
+/* order.component.css */
+.container {
+  max-width: 600px;
+  margin: 20px auto;
+}
+h2{
+  color: lightcyan;
+}
+
+form div {
+  margin-bottom: 10px;
+}
+
+table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+}
+
+.form-field {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input, select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+.success-snackbar {
+  background-color: #4caf50; /* Green */
+  color: rgb(161, 238, 196);
+}
+
+.error-snackbar {
+  background-color: #f44336; /* Red */
+  color: rgb(241, 199, 199);
+}
+

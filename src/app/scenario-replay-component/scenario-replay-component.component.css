@@ -1,0 +1,50 @@
+.scenario-replay-container {
+  margin: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+h2 {
+  margin-top: 20px;
+}
+
+.loading {
+  text-align: center;
+  margin-top: 20px;
+}
+
+
+/* src/app/components/scenario-replay/scenario-replay.component.css */
+.trade-history {
+  margin-top: 20px;
+}
+
+.trade-history h3 {
+  margin-bottom: 10px;
+}
+
+.trade-history-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.trade-history-table th, .trade-history-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.trade-history-table th {
+  background-color: #f4f4f4;
+  text-align: left;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+}
