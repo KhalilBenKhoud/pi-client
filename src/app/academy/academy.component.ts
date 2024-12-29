@@ -14,7 +14,7 @@ import { MessageService } from 'primeng/api';
 export class AcademyComponent {
     constructor(private messageService: MessageService, private router: Router,private route: ActivatedRoute, private service : AcademyService) {}
     lessons : any[] = []
-    lessonId : number = 1 ;
+    lessonId : number = JSON.parse(localStorage.getItem('lastLesson') || "1") ;
    
    
     ngOnInit() {
@@ -23,10 +23,10 @@ export class AcademyComponent {
            console.log(this.lessons)
         },
       error => console.log(error))
-
+       
       this.route.paramMap.subscribe(params => {
-        this.lessonId = Number.parseInt(params.get('id')  || "")  || 1 ;
-
+        this.lessonId = Number.parseInt(params.get('id')  || "")  || this.lessonId ;
+        localStorage.setItem("lastLesson",JSON.stringify(this.lessonId)) ;
       })
     }
 
@@ -35,13 +35,25 @@ export class AcademyComponent {
   }
 
     
-    nextLesson() {
-        if(this.lessonId - 1 < this.lessons.length - 1)
-        this.router.navigate(['/academy',(this.lessonId + 1).toString()])
-        else this.showInfo('there is no more lessons') ;
+  nextLesson() {
+    if (this.lessonId < this.lessons.length) {
+        this.router.navigate(['/academy', (this.lessonId + 1).toString()])
+            .then(() => {
+                localStorage.setItem('lastLesson', JSON.stringify(this.lessonId));
+            });
+    } else {
+        this.showInfo('There are no more lessons.');
     }
+}
 
-    previousLesson() {
-      this.router.navigate(['/academy',(this.lessonId - 1).toString()])
+previousLesson() {
+    if (this.lessonId > 1) {
+        this.router.navigate(['/academy', (this.lessonId - 1).toString()])
+            .then(() => {
+                localStorage.setItem('lastLesson', JSON.stringify(this.lessonId));
+            });
+    } else {
+        this.showInfo('This is the first lesson.');
     }
+}
 }

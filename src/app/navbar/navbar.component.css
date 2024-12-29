@@ -24,9 +24,11 @@ nav {
     gap: 30px;
 }
 
+  
 .links {
     display: flex;
-    gap: 30px;
+    gap : 30px ;
+    position: relative;
 }
 
 :host ::ng-deep .register {
@@ -36,4 +38,15 @@ nav {
 :host ::ng-deep .register:hover {
     background-color: whitesmoke;
     color: black;
-}
+
+    &:hover {
+        background-color: whitesmoke;
+        color : black ;
+    }
+  }
+
+  .notifications-container {
+      position: fixed;
+      top: 1570px ;
+      right : 0 ;
+  }

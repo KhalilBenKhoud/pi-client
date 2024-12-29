@@ -1,0 +1,15 @@
+<img src="../../assets/images/chatbotIcon.png" alt="" class="chatbotIcon" (click)="toggleChatbot()">
+<p-button label="clear conversation" (onClick)="resetHistory()"  *ngIf="chatbotShown"  class="reset"/>
+<nb-chat title="profit pilot chatbot (powered by Gemini)" *ngIf="chatbotShown">
+    <nb-chat-message *ngFor="let msg of messages"
+    [message]="msg.text"
+    [reply]="msg.reply"
+    [date]="msg.date"
+>
+
+</nb-chat-message>
+
+<nb-chat-form (send)="sendMessage($event)">
+</nb-chat-form> 
+</nb-chat>
+

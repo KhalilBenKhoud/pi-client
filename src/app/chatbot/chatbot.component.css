@@ -1,0 +1,29 @@
+::ng-deep nb-layout-column {
+    justify-content: center;
+    display: flex;
+    
+  }
+
+  ::ng-deep p-button.reset {
+   
+      position: fixed;
+      bottom: 590px;
+      right: 20px ;
+      z-index: 100;
+  }
+  nb-chat {
+    width: 500px;
+    height: 500px;
+    position: fixed;
+    bottom: 80px;
+    right: 20px ;
+    z-index: 100;
+  }
+.chatbotIcon {
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px ;
+    cursor: pointer;
+}

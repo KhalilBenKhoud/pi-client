@@ -7,5 +7,6 @@
     <section class="page nb-theme-default">
       <router-outlet></router-outlet>
     </section>
+    <app-chatbot *ngIf="authService.isAuthenticated()"></app-chatbot>
   </nb-layout-column>
 </nb-layout>

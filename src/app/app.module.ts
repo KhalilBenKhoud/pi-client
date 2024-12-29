@@ -25,7 +25,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { StockChartsComponent } from './stock-charts/stock-charts.component';
 import { AcademyComponent } from './academy/academy.component';
 import { SafePipe } from './safe.pipe';
-import { NbThemeModule } from '@nebular/theme';
+import { NbChatModule, NbThemeModule } from '@nebular/theme';
 import {NbStepperModule, NbCardModule, NbButtonModule,NbLayoutModule} from '@nebular/theme';
 import { QuizComponent } from './academy/quiz/quiz.component';
 import { RadioButtonModule } from 'primeng/radiobutton';
@@ -55,6 +55,16 @@ import { MonteCarloStreamlitComponent } from './monte-carlo-streamlit/monte-carl
 
 
 
+import { OrderListModule } from 'primeng/orderlist';
+import { NotificationsComponent } from './notifications/notifications.component';
+import { TrainingComponent } from './training/training.component';
+import { CurrencyComponent } from './currency/currency.component';
+import { ChatbotComponent } from './chatbot/chatbot.component';
+import { NotesComponent } from './notes/notes.component';
+import { QuillModule } from 'ngx-quill';
+import { NewsComponent } from './news/news.component'
+import { DragDropModule } from 'primeng/dragdrop';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -82,6 +92,12 @@ import { MonteCarloStreamlitComponent } from './monte-carlo-streamlit/monte-carl
     PerformanceDashboardComponentComponent,
     HistoricalDataTableComponentComponent,
     MonteCarloStreamlitComponent,
+    NotificationsComponent,
+    TrainingComponent,
+    CurrencyComponent,
+    ChatbotComponent,
+    NotesComponent,
+    NewsComponent
   ],
   imports: [
     BrowserModule,
@@ -110,7 +126,12 @@ import { MonteCarloStreamlitComponent } from './monte-carlo-streamlit/monte-carl
     CardModule,
     MatSnackBarModule,
     ChartModule,
-    ProgressSpinnerModule
+    ProgressSpinnerModule,
+    OrderListModule,
+    NbChatModule,
+    DragDropModule,
+    CommonModule,
+    QuillModule.forRoot()
   ],
   providers: [    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true } , AuthGuard , NonauthGuard , [MessageService]],
   bootstrap: [AppComponent]

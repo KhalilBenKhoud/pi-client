@@ -3,7 +3,10 @@
 <div class="banner">
     <h1 @slideUp>Start learning !</h1>
     <img src="../../assets/images/open-doodles-sitting-and-reading.gif" alt="line" />
+    <p-button label="train with indicators" routerLink="/training"  icon="pi pi-graduation-cap" />
+
 </div>
+<h5>There are 10 lessons in total, Enjoy!</h5>
 <div class="lesson-container"  >
   <div class="navigate" (click)="previousLesson()" [ngClass]="{ 'disabled': lessonId == 1 }" >
   <img class="arrow" src="../../assets/images/arrow_left.gif" alt="prev" >
@@ -16,7 +19,7 @@
         <ng-template #labelOne>tutorial</ng-template>
         <h4>Watch the tutorial</h4>
         <div class="video-container">
-          <h2>{{lessons[lessonId - 1].lesson.title}} {{lessons[lessonId - 1].seen === true ? '(seen before)' : ''}}</h2>
+          <h2>{{lessonId}} {{lessons[lessonId - 1].lesson.title}} {{lessons[lessonId - 1].seen === true ? '(seen before)' : ''}}</h2>
          <iframe
              id="youtube-player"
              width="560"
@@ -33,27 +36,35 @@
       </nb-step>
       <nb-step [label]="labelTwo" >
         <ng-template #labelTwo>First question</ng-template>
-        <app-quiz [question]="'aa'"></app-quiz>
+        <app-quiz [question]="lessons[lessonId - 1].lesson.first_question" 
+          [choices]="[lessons[lessonId - 1].lesson.first_question_first_choice,
+          lessons[lessonId - 1].lesson.first_question_second_choice,
+          lessons[lessonId - 1].lesson.first_question_third_choice,
+          lessons[lessonId - 1].lesson.first_question_fourth_choice,
+          ]"
+          [correctAnswer]="lessons[lessonId - 1].lesson.first_correct_answer"
+        ></app-quiz>
         <button nbButton nbStepperPrevious>prev</button>
         <button nbButton nbStepperNext>next</button>
       </nb-step>
       <nb-step label="Third step">
-        <h4>Step content #3</h4>
-        <p class="lorem">
-          Lorizzle ipsum dolizzle stuff fizzle, consectetuer adipiscing break it down.
-          Nullizzle sapien velizzle, my shizz pimpin', shizzle my nizzle crocodizzle shut the shizzle up,
-          gravida vizzle, dang.
-        </p>
+        <h4>Second question</h4>
+        <app-quiz [question]="lessons[lessonId - 1].lesson.second_question" 
+        [choices]="[lessons[lessonId - 1].lesson.second_question_first_choice,
+        lessons[lessonId - 1].lesson.second_question_second_choice,
+        lessons[lessonId - 1].lesson.second_question_third_choice,
+        lessons[lessonId - 1].lesson.second_question_fourth_choice,
+        ]"
+        [correctAnswer]="lessons[lessonId - 1].lesson.second_correct_answer"
+      ></app-quiz>
         <button nbButton nbStepperPrevious>prev</button>
         <button nbButton nbStepperNext>next</button>
       </nb-step>
       <nb-step [label]="labelFour">
-        <ng-template #labelFour>Fourth step</ng-template>
-        <h4>Step content #4</h4>
+        <ng-template #labelFour>Note</ng-template>
+        <h4>What to remember !</h4>
         <p class="lorem">
-          Lorizzle ipsum dolizzle stuff fizzle, consectetuer adipiscing break it down.
-          Nullizzle sapien velizzle, my shizz pimpin', shizzle my nizzle crocodizzle shut the shizzle up,
-          gravida vizzle, dang.
+          <b>Note: </b> {{lessons[lessonId - 1].lesson.note}}
         </p>
         <button nbButton nbStepperPrevious>prev</button>
         <button nbButton disabled nbStepperNext>next</button>

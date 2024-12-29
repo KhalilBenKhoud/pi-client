@@ -18,6 +18,10 @@ import { ScenarioReplayComponentComponent } from './scenario-replay-component/sc
 import { PerformanceDashboardComponentComponent } from './performance-dashboard-component/performance-dashboard-component.component';
 import { MarketChartComponentComponent } from './market-chart-component/market-chart-component.component';
 import { HistoricalDataTableComponentComponent } from './historical-data-table-component/historical-data-table-component.component';
+import { TrainingComponent } from './training/training.component';
+import { CurrencyComponent } from './currency/currency.component';
+import { NotesComponent } from './notes/notes.component';
+import { NewsComponent } from './news/news.component';
 
 const routes: Routes = [
   {path : "", component: HomeComponent, pathMatch: 'full' },
@@ -37,6 +41,11 @@ const routes: Routes = [
   {path : "login", component: LoginComponent, canActivate: [NonauthGuard] },
   {path : "register", component: RegisterComponent, canActivate: [NonauthGuard]},
   {path : "trading" , component : TradingPanelComponent , canActivate: [AuthGuard]},
+  {path : "trading" , component : TradingComponent , canActivate: [AuthGuard]},
+  {path : "training" , component : TrainingComponent , canActivate: [AuthGuard]},
+  {path : "currency" , component : CurrencyComponent , canActivate: [AuthGuard]},
+  {path : "notes" , component : NotesComponent , canActivate: [AuthGuard]},
+  {path : "news" , component : NewsComponent , canActivate: [AuthGuard]},
   {path : "academy" , component : AcademyComponent , canActivate: [AuthGuard], pathMatch: 'full'},
   {path : "academy/:id" , component : AcademyComponent , canActivate: [AuthGuard]}
 ];
