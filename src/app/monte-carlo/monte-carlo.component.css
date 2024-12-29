@@ -1,0 +1,20 @@
+/* monte-carlo.component.css */
+.monte-carlo-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.streamlit-container {
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f4f4; /* Optional background color */
+}
+
+iframe {
+  border: none; /* Remove iframe border */
+}

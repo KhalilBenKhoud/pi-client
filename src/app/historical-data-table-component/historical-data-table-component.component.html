@@ -1,0 +1,62 @@
+<div class="historical-data-container">
+  <h2>Historical Data</h2>
+
+  <!-- Timeframe Selection -->
+  <div class="form-group">
+    <label for="timeframe">Select Timeframe:</label>
+    <p-dropdown
+      [options]="timeframes"
+      [(ngModel)]="selectedTimeframe"
+      placeholder="Select Timeframe"
+      (onChange)="fetchHistoricalData()"
+    ></p-dropdown>
+  </div>
+
+  <!-- Candlestick Chart -->
+  <div #chartContainer class="chart-container"></div>
+
+  <!-- Loading Spinner -->
+  <div *ngIf="loading" class="loading-spinner">
+    <p-progressSpinner></p-progressSpinner>
+  </div>
+
+  <!-- Error Message -->
+  <div *ngIf="errorMessage" class="error-message">
+    <p-toast></p-toast>
+  </div>
+
+  <!-- Trade Form -->
+  <h3>Place a Trade</h3>
+  <form (ngSubmit)="placeTrade()">
+    <div class="form-group">
+      <label for="symbol">Symbol</label>
+      <input
+        id="symbol"
+        type="text"
+        pInputText
+        [(ngModel)]="tradeForm.symbol"
+        name="symbol"
+        placeholder="e.g., AAPL"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="action">Action</label>
+      <p-dropdown
+        [options]="[{label: 'Buy', value: 'buy'}, {label: 'Sell', value: 'sell'}]"
+        [(ngModel)]="tradeForm.action"
+        name="action"
+        placeholder="Select Action"
+      ></p-dropdown>
+    </div>
+    <div class="form-group">
+      <label for="quantity">Quantity</label>
+      <p-inputNumber [(ngModel)]="tradeForm.quantity" name="quantity" mode="decimal" [min]="1"></p-inputNumber>
+    </div>
+    <div class="form-group">
+      <label for="price">Price</label>
+      <p-inputNumber [(ngModel)]="tradeForm.price" name="price" mode="currency" currency="USD"></p-inputNumber>
+    </div>
+    <button pButton type="submit" label="Place Trade" class="p-button-success"></button>
+  </form>
+</div>

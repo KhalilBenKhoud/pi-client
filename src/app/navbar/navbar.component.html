@@ -1,3 +1,18 @@
+<nav [ngClass]="isScrolled && 'scrolled'">
+    <img src="../../assets/images/logo.png" routerLink="home" style="cursor: pointer; height: 100px">
+    <div class="nav-left">
+        <p-button label="Charts" *ngIf="authService.isAuthenticated()" routerLink="chart" icon="pi pi-chart-line" />
+        <p-button label="Trading" *ngIf="authService.isAuthenticated()" routerLink="trading" icon="pi pi-euro" />
+        <p-button label="Forecast" *ngIf="authService.isAuthenticated()" routerLink="forecast" icon="pi pi-eye" />
+        <p-button label="Academy" *ngIf="authService.isAuthenticated()" [routerLink]="['/academy',1]" icon="pi pi-graduation-cap" />
+        <p-button label="VaR-Calculator" *ngIf="authService.isAuthenticated()" routerLink="var-calculator" />
+        <p-button label="Scenario-Replay" *ngIf="authService.isAuthenticated()" routerLink="scenario-replay" />
+    </div>
+    <div class="links">
+        <p-button label="Login" *ngIf="!authService.isAuthenticated()" routerLink="login" icon="pi pi-sign-in" />
+        <p-button label="Register" *ngIf="!authService.isAuthenticated()" routerLink="register" styleClass="register" icon="pi pi-user-plus" />
+        <p-button label="Logout" (click)="logout()" *ngIf="authService.isAuthenticated()" styleClass="register" icon="pi pi-sign-out" />
+    </div>
 <nav [ngClass]="isScrolled && 'scrolled'" >
 <img src="../../assets/images/logo.png"  routerLink="home" style="cursor: pointer; height: 100px">
 <div class="links">

@@ -34,6 +34,7 @@ export class NavbarComponent {
     )
   }
 
+  
   lastLesson() {
     return localStorage.getItem('lastLesson') ;
   }

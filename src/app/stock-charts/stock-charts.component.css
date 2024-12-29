@@ -1,0 +1,39 @@
+/* src/app/components/candlestick/candlestick.component.css */
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+div[chartContainer] {
+  width: 100%;
+  height: 100%;
+}
+
+.tradingview-widget-container {
+  width: 100%;
+  height: auto;
+  margin: 20px 0;
+}
+
+.container {
+  padding: 20px;
+}
+
+.controls {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.dropdown {
+  width: 200px;
+}
+

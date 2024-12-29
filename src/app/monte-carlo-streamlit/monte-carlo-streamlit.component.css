@@ -1,0 +1,12 @@
+.streamlit-container {
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f4f4; /* Optional background color */
+}
+
+iframe {
+  border: none; /* Remove iframe border */
+}
