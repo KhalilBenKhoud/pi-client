@@ -51,6 +51,7 @@ import { HistoricalDataTableComponentComponent } from './historical-data-table-c
 import { ChartModule } from 'primeng/chart';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { MessageService } from 'primeng/api';
+import { MonteCarloStreamlitComponent } from './monte-carlo-streamlit/monte-carlo-streamlit.component';
 
 
 
@@ -80,6 +81,7 @@ import { MessageService } from 'primeng/api';
     UserTradePanelComponentComponent,
     PerformanceDashboardComponentComponent,
     HistoricalDataTableComponentComponent,
+    MonteCarloStreamlitComponent,
   ],
   imports: [
     BrowserModule,

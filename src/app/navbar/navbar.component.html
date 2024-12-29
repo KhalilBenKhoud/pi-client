@@ -6,6 +6,7 @@
         <p-button label="Forecast" *ngIf="authService.isAuthenticated()" routerLink="forecast" icon="pi pi-eye" />
         <p-button label="Academy" *ngIf="authService.isAuthenticated()" [routerLink]="['/academy',1]" icon="pi pi-graduation-cap" />
         <p-button label="VaR-Calculator" *ngIf="authService.isAuthenticated()" routerLink="var-calculator" />
+        <p-button label="Scenario-Replay" *ngIf="authService.isAuthenticated()" routerLink="scenario-replay" />
     </div>
     <div class="links">
         <p-button label="Login" *ngIf="!authService.isAuthenticated()" routerLink="login" icon="pi pi-sign-in" />
