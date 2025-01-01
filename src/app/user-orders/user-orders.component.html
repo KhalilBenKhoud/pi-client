@@ -1,0 +1,29 @@
+<h3>Order History</h3>
+<p-table [value]="orders" [paginator]="true" [rows]="10" responsiveLayout="scroll">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Symbol</th>
+      <th>Quantity</th>
+      <th>Type</th>
+      <th>Action</th>
+      <th>Price</th>
+      <th>Status</th>
+      <th>Executed At</th>
+      <th>Take Profit</th>
+      <th>Stop Loss</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-order>
+    <tr>
+      <td>{{ order.symbol }}</td>
+      <td>{{ order.quantity }}</td>
+      <td>{{ order.order_type | titlecase }}</td>
+      <td>{{ order.action | titlecase }}</td>
+      <td>{{ order.price || 'Market' }}</td>
+      <td>{{ order.status | titlecase }}</td>
+      <td>{{ order.executed_at ? (order.executed_at | date: 'short') : 'N/A' }}</td>
+      <td>{{order.take_profit}}</td>
+      <td>{{order.stop_loss}}</td>
+    </tr>
+  </ng-template>
+</p-table>

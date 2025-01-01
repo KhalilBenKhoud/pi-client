@@ -1,0 +1,126 @@
+/* Overall container with a light background color */
+.forecasting-container {
+  position: relative;
+  background-color: rgba(248, 249, 250, 0.8); /* Slight transparency to show animation */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Form group styling */
+.form-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+/* Label and input styling */
+label {
+  font-weight: bold;
+  color: #333;
+}
+
+.input-field {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 150px;
+}
+
+/* Button styling */
+.forecast-button {
+  padding: 8px 16px;
+  background-color: #007bff; /* Primary blue */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.forecast-button:hover {
+  background-color: #0056b3; /* Darker blue */
+}
+
+/* Error message styling */
+.error-message {
+  color: #dc3545;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* Chart container with distinct background and shadow */
+.chart-container {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  height: 450px;
+}
+/* Background animation styling */
+.background-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Places it behind other elements */
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.lottie-background {
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Prevents interaction with the animation */
+}
+
+/* Content styling - ensures all content is in front of the animation */
+.forecasting-container > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Background images container */
+.background-images {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Make background non-interactive */
+  z-index: 0;
+}
+
+/* Common styling for all background images */
+.background-image {
+  position: absolute;
+  width: 200px;
+  opacity: 0.1; /* Lower opacity for subtle effect */
+  filter: blur(15px); /* Apply blur effect */
+  user-select: none;
+  pointer-events: none; /* Prevent interaction */
+}
+
+/* Individual positioning for each image */
+.image-top-left {
+  top: 10%;
+  left: 100%;
+}
+
+.image-bottom-left {
+  bottom: 10%;
+  left: 5%;
+}
+/* Ensure the images scale responsively */
+@media (max-width: 768px) {
+  .background-image {
+    width: 150px;
+    opacity: 0.08; /* Reduce opacity for smaller screens */
+  }
+}

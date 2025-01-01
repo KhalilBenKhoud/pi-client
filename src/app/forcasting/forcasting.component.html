@@ -1,0 +1,40 @@
+<div class="background-images">
+  <img src="assets/images/growth-graph1.png" alt="Growth Graph" class="background-image image-top-left">
+  <img src="assets/images/growth-graph.png" alt="Growth Graph" class="background-image image-bottom-left">
+  <img src="assets/images/Trading.png" alt="Trading" class="background-image image-bottom-right">
+</div>
+<div class="container forecasting-container">
+  <div class="background-animation">
+    <iframe
+      src="https://lottie.host/embed/854f9faf-96a7-4fcd-a82d-08ad09f60f67/LW4vMLqRP4.json"
+      frameborder="0"
+      class="lottie-background"
+    ></iframe>
+  </div>
+  
+  <h2>Stock Forecasting</h2>
+  <div class="form-group">
+    <label for="stockSelect">Select Stock:</label>
+    <select id="stockSelect" [(ngModel)]="selectedStock" class="input-field">
+      <option *ngFor="let stock of stocks" [value]="stock">{{ stock }}</option>
+    </select>
+
+    <label for="forecastYears">Forecast Years:</label>
+    <input
+      type="number"
+      id="forecastYears"
+      [(ngModel)]="forecastYears"
+      min="1"
+      max="4"
+      class="input-field"
+    />
+
+    <button (click)="getForecast()" class="forecast-button">Get Forecast</button>
+  </div>
+
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <div #chartContainer class="chart-container"></div>
+</div>

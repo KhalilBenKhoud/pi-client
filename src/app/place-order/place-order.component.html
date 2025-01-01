@@ -1,0 +1,102 @@
+<form (ngSubmit)="placeOrder()">
+  <!-- Symbol Field -->
+  <div class="form-field">
+    <label for="symbol">Symbol</label>
+    <input
+      id="symbol"
+      type="text"
+      [(ngModel)]="newOrder.symbol"
+      name="symbol"
+      required
+      placeholder="e.g., AAPL, TSLA"
+    />
+  </div>
+
+  <!-- Quantity Field -->
+  <div class="form-field">
+    <label for="quantity">Quantity</label>
+    <input
+      id="quantity"
+      type="number"
+      [(ngModel)]="newOrder.quantity"
+      name="quantity"
+      min="1"
+      required
+      placeholder="Enter quantity"
+    />
+  </div>
+
+  <!-- Order Type Radio Buttons -->
+  <div class="form-field">
+    <label>Order Type</label>
+    <div *ngFor="let type of orderTypes">
+      <input
+        type="radio"
+        [(ngModel)]="newOrder.order_type"
+        name="order_type"
+        [value]="type.value"
+        required
+      />
+      {{ type.label }}
+    </div>
+  </div>
+
+  <!-- Action Dropdown -->
+  <div class="form-field">
+    <label for="action">Action</label>
+    <select id="action" [(ngModel)]="newOrder.action" name="action" required>
+      <option *ngFor="let action of actions" [value]="action.value">
+        {{ action.label }}
+      </option>
+    </select>
+  </div>
+
+  <!-- Price Field -->
+  <div class="form-field" *ngIf="newOrder.order_type === 'limit'">
+    <label for="price">Price</label>
+    <input
+      id="price"
+      type="number"
+      [(ngModel)]="newOrder.price"
+      name="price"
+      min="0"
+      placeholder="Enter price"
+    />
+  </div>
+
+  <!-- Take Profit Field -->
+  <div class="form-field">
+    <label for="take_profit">Take Profit</label>
+    <input
+      id="take_profit"
+      type="number"
+      [(ngModel)]="newOrder.take_profit"
+      name="take_profit"
+      min="0"
+      placeholder="Enter take profit price"
+    />
+  </div>
+
+  <!-- Stop Loss Field -->
+  <div class="form-field">
+    <label for="stop_loss">Stop Loss</label>
+    <input
+      id="stop_loss"
+      type="number"
+      [(ngModel)]="newOrder.stop_loss"
+      name="stop_loss"
+      min="0"
+      placeholder="Enter stop loss price"
+    />
+  </div>
+
+  <!-- Submit Button -->
+  <div style="text-align: center;">
+    <button type="submit">Place Order</button>
+  </div>
+</form>
+
+<!-- Error Message -->
+<!-- <div *ngIf="errorMessage" style="color: red; text-align: center;">
+  {{ errorMessage }}
+</div> -->

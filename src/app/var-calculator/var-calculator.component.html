@@ -1,0 +1,44 @@
+<div class="container-box">
+  <!-- Top-Left SVG Animation (Blurred) -->
+  <div id="lottie-animation-top-left" class="lottie-animation-top-left"></div>
+  <!-- Content Cards -->
+  <div class="card-layer">
+    <div class="card-price">
+      <div class="card-title">Result</div>
+      <p-card *ngIf="varResult" header="VaR Result" styleClass="p-mt-4 p-p-3 result-card p-shadow-4">
+        <div class="p-text-center">
+          <p><strong>Stock Symbol:</strong> {{ symbol }}</p>
+          <p><strong>Confidence Level:</strong> {{ confidenceLevel * 100 | number:'1.0-0' }}%</p>
+          <p><strong>Value-at-Risk (VaR):</strong> {{ varResult.VaR | number:'1.2-2' }}</p>
+        </div>
+      </p-card>
+      <div class="card-footer">
+        <ul>
+          <li style="color: #c9c5b1;">What is a Value-at-Risk (VaR)</li>
+          <span style="color: #fff;">Value at risk (VaR) quantifies the extent of possible financial losses within a portfolio over a specific time frame.</span>
+          <li><a href="https://www.investopedia.com/terms/v/var.asp" style="color: light;">Resources</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Calculator Form -->
+    <div class="card-pay">
+      <div class="card-mid">
+        <div class="title">Value-at-Risk (VaR) Calculator</div>
+        <label for="symbol" class="p-text-bold">Stock Symbol</label>
+        <input placeholder="Stock Symbol" [(ngModel)]="symbol" required>
+        <label for="confidenceLevel" class="p-text-bold">Confidence Level (e.g., 0.95)</label>
+        <p-inputNumber placeholder="Confidence Level (e.g., 0.95)" [(ngModel)]="confidenceLevel" name="confidenceLevel" mode="decimal"
+          [minFractionDigits]="2" [maxFractionDigits]="2" [step]="0.01" 
+          [min]="0.90" [max]="0.99" class="p-inputtext-sm"></p-inputNumber>
+        <button class="btn-pay" (click)="calculateVar()" type="button">Calculate VaR</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Error Message -->
+<div style="position: fixed; top: 10px; left: 10px; z-index: 1000;">
+  <p-messages *ngIf="errorMessage" [value]="[{severity:'error', summary:'Error', detail: errorMessage}]"
+  class="p-mt-3"></p-messages>
+</div>
