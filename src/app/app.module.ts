@@ -77,7 +77,6 @@ import { NewsComponent } from './news/news.component'
 import { DragDropModule } from 'primeng/dragdrop';
 import { CommonModule } from '@angular/common';
 import { OrderHistoryComponent } from './order-history/order-history.component';
-import { TableModule } from 'primeng/table';
 import { StockChartComponent } from './stock-chart/stock-chart.component';
 import { DialogModule } from 'primeng/dialog';
 import { PriceRecommendationComponent } from './price-recommendation/price-recommendation.component';

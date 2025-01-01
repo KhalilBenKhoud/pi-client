@@ -47,18 +47,15 @@ const routes: Routes = [
   {path : "register", component: RegisterComponent, canActivate: [NonauthGuard]},
   {path : "trading" , component : TradingPanelComponent , canActivate: [AuthGuard]},
   {path : "trading" , component : TradingComponent , canActivate: [AuthGuard]},
-<<<<<<< HEAD
   {path : "prediction" , component : PredictionComponent , canActivate: [AuthGuard]},
   {path : "all" , component : AllComponent , canActivate: [AuthGuard]},
 
 
 
-=======
   {path : "training" , component : TrainingComponent , canActivate: [AuthGuard]},
   {path : "currency" , component : CurrencyComponent , canActivate: [AuthGuard]},
   {path : "notes" , component : NotesComponent , canActivate: [AuthGuard]},
   {path : "news" , component : NewsComponent , canActivate: [AuthGuard]},
->>>>>>> 2ef37870ef06b8666ab453869efb6fb45d787255
   {path : "academy" , component : AcademyComponent , canActivate: [AuthGuard], pathMatch: 'full'},
   {path : "academy/:id" , component : AcademyComponent , canActivate: [AuthGuard]},
   {path : "history" , component : OrderHistoryComponent , canActivate: [AuthGuard]},
