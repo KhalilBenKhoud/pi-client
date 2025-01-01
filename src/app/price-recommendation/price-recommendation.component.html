@@ -1,0 +1,25 @@
+<br>
+<br>
+<br>
+
+<div class="container">
+    <h2>Recommandation de Prix pour une Action</h2>
+  
+    <div class="form-group">
+      <label for="symbol">Entrez le symbole de l'action :</label>
+      <input type="text" id="symbol" [(ngModel)]="symbol" placeholder="AAPL, TSLA, etc." />
+      <button (click)="getRecommendation()">Obtenir la Recommandation</button>
+    </div>
+  
+    <div *ngIf="recommendation">
+      <h3>Recommandation pour {{ symbol.toUpperCase() }}</h3>
+      <p>Prix Actuel : {{ recommendation.current_price | currency }}</p>
+      <p>Prix Prédit : {{ recommendation.predicted_price | currency }}</p>
+      <p>Recommandation : <strong>{{ recommendation.recommendation }}</strong></p>
+    </div>
+  
+    <div *ngIf="error" class="error">
+      <p>{{ error }}</p>
+    </div>
+  </div>
+  

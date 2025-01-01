@@ -1,0 +1,36 @@
+<div *ngIf="isLoading" class="loading">Chargement...</div>
+<div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+<div class="sidebar">
+  <h2>Utilisateurs pour le Copy Trade</h2>
+  <div *ngFor="let user of users" class="user-item">
+    <div>
+      <span>{{ user.username }}</span>
+    </div>
+    <div>
+      <input 
+        type="number"
+        [(ngModel)]="user.percentageToInvest"
+        placeholder="50" 
+        min="1" 
+        max="100"
+      />
+    </div>
+    <div>
+      <button 
+        *ngIf="!isFollowing(user)" 
+        pButton 
+        type="button" 
+        label="Follow"
+        (click)="follow(user.id, user.percentageToInvest)">
+      </button>
+      <button 
+        *ngIf="isFollowing(user)" 
+        pButton 
+        type="button" 
+        label="Unfollow"
+        (click)="unfollow(user.id)">
+      </button>
+    </div>
+  </div>
+</div>

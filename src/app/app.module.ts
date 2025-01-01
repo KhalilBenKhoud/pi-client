@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ButtonModule } from 'primeng/button';
@@ -38,7 +37,14 @@ import { QuillModule } from 'ngx-quill';
 import { NewsComponent } from './news/news.component'
 import { DragDropModule } from 'primeng/dragdrop';
 import { CommonModule } from '@angular/common';
+import { OrderHistoryComponent } from './order-history/order-history.component';
+import { TableModule } from 'primeng/table';
+import { StockChartComponent } from './stock-chart/stock-chart.component';
+import { DialogModule } from 'primeng/dialog';
+import { PriceRecommendationComponent } from './price-recommendation/price-recommendation.component';
+import { CopyTradeComponent } from './copy-trade/copy-trade.component';
 
+import {SidebarModule} from 'primeng/sidebar';
 
 @NgModule({
   declarations: [
@@ -57,7 +63,11 @@ import { CommonModule } from '@angular/common';
     CurrencyComponent,
     ChatbotComponent,
     NotesComponent,
-    NewsComponent
+    NewsComponent,
+    OrderHistoryComponent,
+    StockChartComponent,
+    PriceRecommendationComponent,
+    CopyTradeComponent,
   ],
   imports: [
     BrowserModule,
@@ -81,7 +91,12 @@ import { CommonModule } from '@angular/common';
     NbChatModule,
     DragDropModule,
     CommonModule,
-    QuillModule.forRoot()
+    QuillModule.forRoot(),
+    TableModule,
+    DialogModule,
+    SidebarModule
+      
+    
   ],
   providers: [    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true } , AuthGuard , NonauthGuard ],
   bootstrap: [AppComponent]
