@@ -1,20 +1,30 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { NotificationService } from '../services/notification.service';
 
 @Component({
   selector: 'app-notifications',
   templateUrl: './notifications.component.html',
   styleUrls: ['./notifications.component.css']
 })
-export class NotificationsComponent {
-  @Input() notificationsVisible !: boolean ;
+export class NotificationsComponent implements OnInit {
+  @Input() notificationsVisible!: boolean;
 
-  notifications = [
-    { title: 'New Lesson Added', content: 'Check out the latest lesson on trading fundamentals.' },
-    { title: 'Quiz Reminder', content: 'You have a quiz due in 2 days.' },
-    { title: 'New Message', content: 'Your instructor has sent you a new message.' },
-    { title: 'Assignment Feedback', content: 'Your recent assignment has been reviewed.' }
-  ];
+  notifications: any[] = []; // Initialisez avec un tableau vide pour recevoir les données de l'API
 
- 
+  constructor(private notificationService: NotificationService) {}
 
+  ngOnInit(): void {
+    this.getNotifications();
+  }
+
+  getNotifications(): void {
+    this.notificationService.getallnotification().subscribe(
+      (data: any) => {
+        this.notifications = data; // Met à jour la variable avec les notifications de l'API
+      },
+      (error) => {
+        console.error('Erreur lors du chargement des notifications:', error);
+      }
+    );
+  }
 }

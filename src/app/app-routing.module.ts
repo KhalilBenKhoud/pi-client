@@ -10,6 +10,8 @@ import { PredictionComponent } from './prediction/prediction.component';
 import { AllComponent } from './all/all.component';
 import { StockChartsComponent } from './stock-charts/stock-charts.component';
 import { AcademyComponent } from './academy/academy.component';
+import { dashboardComponent } from './dashboard/dashboard.component';
+
 import { ForcastingComponent } from './forcasting/forcasting.component';
 import { PlaceOrderComponent } from './place-order/place-order.component';
 import { UserOrdersComponent } from './user-orders/user-orders.component';
@@ -56,7 +58,9 @@ const routes: Routes = [
   {path : "notes" , component : NotesComponent , canActivate: [AuthGuard]},
   {path : "news" , component : NewsComponent , canActivate: [AuthGuard]},
   {path : "academy" , component : AcademyComponent , canActivate: [AuthGuard], pathMatch: 'full'},
-  {path : "academy/:id" , component : AcademyComponent , canActivate: [AuthGuard]},
+  {path : "dashboard" , component : dashboardComponent , canActivate: [AuthGuard], pathMatch: 'full'},
+
+  {path : "academy/:id" , component : AcademyComponent , canActivate: [AuthGuard]}
   {path : "history" , component : OrderHistoryComponent , canActivate: [AuthGuard]},
   {path : "market" , component : StockChartComponent , canActivate: [AuthGuard]},
   {path : "price" , component : PriceRecommendationComponent , canActivate: [AuthGuard]},

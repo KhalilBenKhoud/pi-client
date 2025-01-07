@@ -1,7 +1,6 @@
 <div class="notifications-container" [class.active]="notificationsVisible">
-    <div *ngFor="let notification of notifications" class="notification-item">
-      <p class="notification-title">{{ notification.title }}</p>
-      <p class="notification-content">{{ notification.content }}</p>
-    </div>
+  <div *ngFor="let notification of notifications" class="notification-item">
+    <p class="notification-title">{{ notification.title }}</p>
+    <p class="notification-content">{{ notification.message }}</p>
+  </div>
 </div>
-  

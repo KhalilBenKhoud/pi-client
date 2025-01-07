@@ -37,6 +37,7 @@ import { NbChatModule, NbThemeModule } from '@nebular/theme';
 import {NbStepperModule, NbCardModule, NbButtonModule,NbLayoutModule} from '@nebular/theme';
 import { QuizComponent } from './academy/quiz/quiz.component';
 import { RadioButtonModule } from 'primeng/radiobutton';
+import { dashboardComponent } from './dashboard/dashboard.component';
 //import { ChartModule } from 'primeng/chart';
 
 
@@ -111,6 +112,8 @@ import {SidebarModule} from 'primeng/sidebar';
     AcademyComponent,
     SafePipe,
     QuizComponent,
+    NotificationsComponent,
+    dashboardComponent,
     ForcastingComponent,
     PlaceOrderComponent,
     UserOrdersComponent,
@@ -152,6 +155,7 @@ import {SidebarModule} from 'primeng/sidebar';
     NbButtonModule,
     NbLayoutModule,
     RadioButtonModule,
+    OrderListModule,
   //  ChartModule
     MessagesModule,
     MessageModule,
