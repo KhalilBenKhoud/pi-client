@@ -21,7 +21,6 @@ export class PlaceOrderComponent implements OnInit {
   };
 
   orderTypes = [
-    { label: 'Market', value: 'market' },
     { label: 'Limit', value: 'limit' },
   ];
 

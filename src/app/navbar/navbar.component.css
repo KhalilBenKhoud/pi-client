@@ -10,7 +10,30 @@ nav {
     transition: box-shadow 0.3s ease-in-out;
     height: 70px;
     overflow: auto;
+    scrollbar-color: #007bff #f0f0f0; /* Scrollbar thumb and track colors */
+     overflow-y: hidden;
 }
+
+.container::-webkit-scrollbar {
+    height: 8px; /* Horizontal scrollbar height */
+  }
+  
+
+.container::-webkit-scrollbar-thumb {
+  background-color: #007bff; /* Scrollbar thumb color */
+  border-radius: 10px; /* Rounded corners for thumb */
+  border: 2px solid #f0f0f0; /* Adds padding around thumb */
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+.container::-webkit-scrollbar-track {
+  background-color: #f0f0f0; /* Scrollbar track color */
+  border-radius: 10px; /* Rounded corners for track */
+}
+
 
 .scrolled {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Add shadow */
@@ -31,6 +54,10 @@ nav {
     position: relative;
 }
 
+:host ::ng-deep > * {
+    white-space: nowrap;
+}
+
 :host ::ng-deep .register {
     background: gray;
     border-color: gray;
@@ -38,7 +65,7 @@ nav {
 :host ::ng-deep .register:hover {
     background-color: whitesmoke;
     color: black;
-
+    width: fit-content ;
     &:hover {
         background-color: whitesmoke;
         color : black ;

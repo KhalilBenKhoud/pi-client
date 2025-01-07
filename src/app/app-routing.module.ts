@@ -60,7 +60,7 @@ const routes: Routes = [
   {path : "academy" , component : AcademyComponent , canActivate: [AuthGuard], pathMatch: 'full'},
   {path : "dashboard" , component : dashboardComponent , canActivate: [AuthGuard], pathMatch: 'full'},
 
-  {path : "academy/:id" , component : AcademyComponent , canActivate: [AuthGuard]}
+  {path : "academy/:id" , component : AcademyComponent , canActivate: [AuthGuard]},
   {path : "history" , component : OrderHistoryComponent , canActivate: [AuthGuard]},
   {path : "market" , component : StockChartComponent , canActivate: [AuthGuard]},
   {path : "price" , component : PriceRecommendationComponent , canActivate: [AuthGuard]},

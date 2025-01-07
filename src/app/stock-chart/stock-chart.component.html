@@ -1,26 +1,56 @@
-<br>
-<br>
-<br>
-<br>
-<div class="stock-container">
-  <!-- Ligne contenant le symbole du stock, l'intervalle de temps et le bouton d'affichage du graphique -->
-  <div class="input-group-row">
-    <label for="symbol">Symbole :</label>
-    <input type="text" id="symbol" [(ngModel)]="stockSymbol" placeholder="Entrez le symbole du stock" />
+<section style="padding-top: 50px;">
+<div class="input-group-row">
+  <label for="symbol">Symbole :</label>
+  <input type="text" id="symbol" [(ngModel)]="stockSymbol" placeholder="Entrez le symbole du stock" />
 
-    <label for="interval">Intervalle :</label>
-    <select id="interval" [(ngModel)]="selectedInterval">
-      <option value="" disabled selected>Sélectionnez l'échelle de temps</option>
-      <option value="1min">1 minute</option>
-      <option value="5min">5 minutes</option>
-      <option value="15min">15 minutes</option>
-      <option value="30min">30 minutes</option>
-      <option value="60min">1 heure</option>
-      <option value="1d">1 jour</option>
-    </select>
+  <label for="interval">Intervalle :</label>
+  <select id="interval" [(ngModel)]="selectedInterval">
+    <option value="" disabled selected>Sélectionnez l'échelle de temps</option>
+    <option value="1min">1 minute</option>
+    <option value="5min">5 minutes</option>
+    <option value="15min">15 minutes</option>
+    <option value="30min">30 minutes</option>
+    <option value="60min">1 heure</option>
+    <option value="1d">1 jour</option>
+  </select>
 
-    <button class="show-chart-button" (click)="loadStockData()">Afficher le graphique</button>
+  <button class="show-chart-button" (click)="loadStockData()">Afficher le graphique</button>
+</div>
+
+<div class="chart-wrapper" style="padding: 20px;">
+  <!-- Conteneur du graphique -->
+  <div id="tv_chart_container"></div>
+
+  <!-- Contrôles de trading alignés à droite du graphique -->
+  <div class="trading-controls">
+    <!-- Groupe d'inputs pour la quantité et le type de position -->
+    <div class="action-group">
+      <label for="quantity" style="color: white ;">Quantité :</label>
+      <input type="number" id="quantity" [(ngModel)]="orderQuantity" placeholder="Entrez la quantité" />
+
+      <label for="orderType" style="color: white ;">Type de position :</label>
+      <select id="orderType" [(ngModel)]="orderPositionType">
+        <option value="long">Long</option>
+        <option value="short">Short</option>
+      </select>
+    </div>
+
+    <!-- Groupe de boutons pour acheter et vendre -->
+    <div class="button-group">
+      <button id="buy-button" class="buy-button" (click)="buyStock()">Acheter</button>
+      <button id="sell-button" class="sell-button" (click)="sellStock()">Vendre</button>
+      
+      <!-- Bouton pour afficher la recommandation de prix -->
+      
+    </div>
+    <button id="price-recommendation-button" class="price-recommendation-button" (click)="openPriceRecommendationDialog()">
+      Recommandation de Prix
+    </button>
   </div>
+</div>
+<div class="stock-container" style="width: 100%;">
+  <!-- Ligne contenant le symbole du stock, l'intervalle de temps et le bouton d'affichage du graphique -->
+ 
 
   <!-- Affichage du message d'erreur -->
   <div *ngIf="errorMessage" class="error-message">
@@ -28,37 +58,8 @@
   </div>
 
   <!-- Wrapper pour le graphique et les contrôles de trading -->
-  <div class="chart-wrapper">
-    <!-- Conteneur du graphique -->
-    <div id="tv_chart_container"></div>
 
-    <!-- Contrôles de trading alignés à droite du graphique -->
-    <div class="trading-controls">
-      <!-- Groupe d'inputs pour la quantité et le type de position -->
-      <div class="action-group">
-        <label for="quantity">Quantité :</label>
-        <input type="number" id="quantity" [(ngModel)]="orderQuantity" placeholder="Entrez la quantité" />
-
-        <label for="orderType">Type de position :</label>
-        <select id="orderType" [(ngModel)]="orderPositionType">
-          <option value="long">Long</option>
-          <option value="short">Short</option>
-        </select>
-      </div>
-
-      <!-- Groupe de boutons pour acheter et vendre -->
-      <div class="button-group">
-        <button id="buy-button" class="buy-button" (click)="buyStock()">Acheter</button>
-        <button id="sell-button" class="sell-button" (click)="sellStock()">Vendre</button>
-        
-        <!-- Bouton pour afficher la recommandation de prix -->
-        
-      </div>
-      <button id="price-recommendation-button" class="price-recommendation-button" (click)="openPriceRecommendationDialog()">
-        Recommandation de Prix
-      </button>
-    </div>
-  </div>
+</div>
 
   <!-- Liste des assets si disponibles -->
   <div class="assets-list" *ngIf="assets.length > 0">
@@ -118,3 +119,5 @@
  >
    <app-copy-trade></app-copy-trade>
  </p-sidebar>
+
+</section>

@@ -18,8 +18,14 @@ import { Chart } from 'chart.js/auto'
 })
 export class dashboardComponent implements OnInit{
   balance: number | undefined;  // Define balance variable
-
-  constructor(
+   percentages : any[] = [] ;
+  rankedUsers : any[] = [] ;
+  price_target: number | undefined;
+  symbol: string | undefined;
+  direction: string | undefined;
+  priceAlerts: any[] = [] ;
+  
+   constructor(
     private portfolioService: PortfolioService,  // Inject PortfolioService
     private messageService: MessageService,
     private authService: AuthService,
@@ -27,42 +33,29 @@ export class dashboardComponent implements OnInit{
   ) {}
 
   ngOnInit(): void {
-    this.getPortfolioBalance();  // Fetch balance on initialization
-    
+    this.getPortfolioBalance() ; 
+    this.getPortfolioPercentages() ;
+     this.getRanking() ;
+     this.getPriceAlerts();
   }
 
-  ngAfterViewInit() : void {
-    this.createPieChart() ;
-  }
+  
   createPieChart() {
     const ctx = document.getElementById('myPieChart') as HTMLCanvasElement;
 
     new Chart(ctx, {
       type: 'pie',
       data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-          label: '# of Votes',
-          data: [12, 19, 3, 5, 2, 3],
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)'
-          ],
-          borderColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)'
-          ],
-          borderWidth: 1
-        }]
+        labels: this.percentages.map((percentage) => percentage.symbol), // Asset symbols
+        datasets: [
+          {
+            data: this.percentages.map((percentage) => percentage.percentage), // Percentages
+            backgroundColor: this.percentages.map(() => this.getRandomColor()), // Optional: Generate colors
+            borderWidth: 1,
+          },
+        ],
       },
+  
       options: {
         responsive: true,
         plugins: {
@@ -78,11 +71,82 @@ export class dashboardComponent implements OnInit{
   getPortfolioBalance(): void {
     this.portfolioService.getBalance().subscribe(
       (response: any) => {
-        this.balance = response; // Store the fetched balance
+        this.balance = response.balance; // Store the fetched balance
       },
       error => {
         console.error('Error fetching balance', error);
       }
     );
   }
+
+  getPortfolioPercentages(): void {
+    this.portfolioService.getPortfolioPercentages().subscribe(
+      (response: any) => {
+        this.percentages = response.asset_percentages; // Store the fetched percentages
+        console.log(this.percentages) ;
+        this.createPieChart();
+
+      },
+      error => {
+        console.error('Error fetching percentages', error);
+      }
+    );
+  }
+
+  getRanking() : void {
+    this.portfolioService.getRanking().subscribe(
+      (response: any) => {
+        this.rankedUsers = [...response.user_ranks]; // Store the fetched ranking
+      },
+      error => {
+        console.error('Error fetching ranking', error);
+      }
+    );
+  }
+
+  getRandomColor(): string {
+    // Helper function to generate random colors for the chart
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+  
+
+  createPriceAlert(): void { 
+     let data = {
+      symbol: this.symbol,
+      price_target: this.price_target,
+      direction: this.direction
+     } 
+     this.portfolioService.addPriceAlert(data).subscribe(data => {
+      this.messageService.add({severity:'success', summary: 'Success', detail: 'Price alert created successfully'});
+      this.getPriceAlerts();
+     },
+      error => {
+        this.messageService.add({severity:'error', summary: 'Error', detail: 'Failed to create price alert'});
+      });
+  }
+
+  getPriceAlerts(): void {  
+    this.portfolioService.getAllPriceAlerts().subscribe(
+      (response: any) => {
+        this.priceAlerts = [...response];
+      },
+      error => {
+        console.error('Error fetching price alerts', error);
+      }
+    );}
+
+    deletePriceAlert(id: string): void {  
+      this.portfolioService.deletePriceAlert(id).subscribe(data => {
+        this.messageService.add({severity:'success', summary: 'Success', detail: 'Price alert deleted successfully'});
+        this.getPriceAlerts();
+      },error => {  this.messageService.add({severity:'error', summary: 'Error', detail: 'Failed to delete price alert'});})
+    }
+
+  
+  
 }
