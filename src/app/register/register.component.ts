@@ -58,7 +58,10 @@ this.messageService.add({ severity: 'success', summary: 'Success', detail: messa
         this.auth.isLoggedOut = false ;
         this.router.navigate(['/trading']);
       },
-      error => this.showError("there was a problem signing you up, probably your email is not real")
+      error => {
+        this.showError("there was a problem signing you up, probably your email is not real");
+        console.log(error)
+      }
     )
   }
 

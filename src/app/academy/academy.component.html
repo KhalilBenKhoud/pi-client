@@ -3,8 +3,10 @@
 <div class="banner">
     <h1 @slideUp>Start learning !</h1>
     <img src="../../assets/images/open-doodles-sitting-and-reading.gif" alt="line" />
+    <div class="btns" style="display: flex; gap: 30px">
     <p-button label="train with indicators" routerLink="/training"  icon="pi pi-graduation-cap" />
-
+    <p-button label="currency" routerLink="currency"  icon="pi pi-dollar" />
+  </div>
 </div>
 <h5>There are 10 lessons in total, Enjoy!</h5>
 <div class="lesson-container"  >
@@ -18,7 +20,7 @@
       <nb-step [label]="labelOne">
         <ng-template #labelOne>tutorial</ng-template>
         <h4>Watch the tutorial</h4>
-        <div class="video-container">
+        <div class="video-container" *ngIf="lessons">
           <h2>{{lessonId}} {{lessons[lessonId - 1].lesson.title}} {{lessons[lessonId - 1].seen === true ? '(seen before)' : ''}}</h2>
          <iframe
              id="youtube-player"

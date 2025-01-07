@@ -46,7 +46,6 @@ const routes: Routes = [
   {path : "login", component: LoginComponent, canActivate: [NonauthGuard] },
   {path : "register", component: RegisterComponent, canActivate: [NonauthGuard]},
   {path : "trading" , component : TradingPanelComponent , canActivate: [AuthGuard]},
-  {path : "trading" , component : TradingComponent , canActivate: [AuthGuard]},
   {path : "prediction" , component : PredictionComponent , canActivate: [AuthGuard]},
   {path : "all" , component : AllComponent , canActivate: [AuthGuard]},
 

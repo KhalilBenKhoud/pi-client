@@ -24,10 +24,10 @@ export class UserService {
     return this.http.get<User[]>(`${this.apiUrl}/user/users`);
   }
   followTrader(traderId: number, percentageToInvest: number): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/copytrade/follow/${traderId}?percentage_to_invest=${percentageToInvest}`, {});
+    return this.http.post<any>(`${this.apiUrl}/copy/copytrade/follow/${traderId}?percentage_to_invest=${percentageToInvest}`, {});
   }
 
   unfollowTrader(traderId: number, followerId: number): Observable<any> {
-    return this.http.delete<any>(`${this.apiUrl}/copytrade/unfollow/${traderId}?follower_id=${followerId}`);
+    return this.http.delete<any>(`${this.apiUrl}/copy/copytrade/unfollow/${traderId}?follower_id=${followerId}`);
   }
 }

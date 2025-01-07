@@ -1,22 +1,22 @@
 <p-toast position="top-center"></p-toast>
 
 
-<div class="container" @flip>
+<div class="containerRegister" @flip>
 	<div class="screen">
 		<div class="screen__content">
 			<form class="login" (ngSubmit)="onSubmit()">
                 <div class="fields">
                 <div>
                 <div class="login__field">
-					<i class="login__icon fa-solid fa-circle-user"></i>
+					<i class="login__icon fas fa-user"></i>
 					<input type="text" class="login__input" [(ngModel)]="username" name="username"  placeholder="Username" required>
 				</div>
                 <div class="login__field">
-					<i class="login__icon fa-solid fa-circle-user"></i>
+					<i class="login__icon fas fa-user"></i>
 					<input type="text" class="login__input" [(ngModel)]="email"  name="email" placeholder="Email" required>
 				</div>
 				<div class="login__field">
-					<i class="login__icon fas fa-user"></i>
+					<i class="login__icon"></i>
 					<input type="text" class="login__input" [(ngModel)]="experience"  name="experience"  placeholder="Experience (years)" required>
 				</div>
                 <div class="login__field" style="width: 650px;">

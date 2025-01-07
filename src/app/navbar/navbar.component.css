@@ -9,7 +9,7 @@ nav {
     z-index: 20;
     transition: box-shadow 0.3s ease-in-out;
     height: 70px;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .scrolled {
