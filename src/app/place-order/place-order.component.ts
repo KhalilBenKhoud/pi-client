@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { OrderService, Order } from '../services/order.service';
 
 @Component({
@@ -8,18 +9,17 @@ import { OrderService, Order } from '../services/order.service';
 })
 export class PlaceOrderComponent implements OnInit {
   orders: Order[] = [];
-  errorMessage = '';
 
-  // Définir une commande avec les champs requis pour l'API
   newOrder: Order = {
     symbol: '',
     quantity: 0,
     order_type: 'market',
     action: 'buy',
     price: undefined,
+    take_profit: undefined,
+    stop_loss: undefined
   };
 
-  // Options pour le type d'ordre et l'action
   orderTypes = [
     { label: 'Market', value: 'market' },
     { label: 'Limit', value: 'limit' },
@@ -30,33 +30,63 @@ export class PlaceOrderComponent implements OnInit {
     { label: 'Sell', value: 'sell' },
   ];
 
-  constructor(private orderService: OrderService) {}
+  constructor(
+    private orderService: OrderService,
+    private snackBar: MatSnackBar // Inject MatSnackBar
+  ) {}
 
   ngOnInit(): void {
     this.fetchOrders();
   }
 
-  // Récupération des commandes de l'utilisateur via l'API
+  // Fetch user's orders via API
   fetchOrders(): void {
     this.orderService.getUserOrders().subscribe(
-      (orders) => (this.orders = orders),
-      (error) => (this.errorMessage = 'Erreur lors de la récupération des commandes')
+      (orders) => {
+        this.orders = orders;
+        this.showSuccess('Orders loaded successfully!');
+      },
+      (error) => {
+        this.showError('Error fetching orders.');
+        console.error(error);
+      }
     );
   }
 
-  // Placer une nouvelle commande en appelant l'API
+  // Place a new order
   placeOrder(): void {
+    console.log('Placing order:', this.newOrder);
+
     this.orderService.placeOrder(this.newOrder).subscribe(
       (order) => {
-        this.orders.push(order);  // Ajouter la commande à la liste
-        this.resetOrderForm();    // Réinitialiser le formulaire
+        this.orders.push(order); // Add the order to the list
+        this.resetOrderForm();  // Reset the form
+        this.showSuccess('Order placed successfully!');
       },
-      (error) => (this.errorMessage = 'Erreur lors de la création de la commande')
+      (error) => {
+        this.showError('Error placing order.');
+        console.error(error);
+      }
     );
   }
 
-  // Réinitialisation des valeurs de la commande
   resetOrderForm(): void {
-    this.newOrder = { symbol: '', quantity: 0, order_type: 'market', action: 'buy', price: undefined };
+    this.newOrder = { symbol: '', quantity: 0, order_type: 'market', action: 'buy', price: undefined, take_profit: undefined, stop_loss: undefined };
+  }
+
+  // Show success alert
+  private showSuccess(message: string): void {
+    this.snackBar.open(message, 'Close', {
+      duration: 3000, // 3 seconds
+      panelClass: ['success-snackbar'] // Custom class for styling
+    });
+  }
+
+  // Show error alert
+  private showError(message: string): void {
+    this.snackBar.open(message, 'Close', {
+      duration: 3000, // 3 seconds
+      panelClass: ['error-snackbar'] // Custom class for styling
+    });
   }
 }

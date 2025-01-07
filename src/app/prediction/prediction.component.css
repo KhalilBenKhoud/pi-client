@@ -1,0 +1,207 @@
+.page-container {
+  display: flex;
+  justify-content: space-between; /* Ensure space between the main content and the side */
+  align-items: flex-start;        /* Align both the main content and side at the top */
+}
+
+.cards-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 25px;  /* nbadel hethy ki n7eb n9areb w nba3ed al margin lisar*/
+  margin-right: 425px; /* nbadel hethy ki n7eb n9areb w nba3ed al right side */
+}
+
+.cards-container .card {
+  width: 30%;   
+  margin-right: 10px; /* Space between the first three cards */
+  transition: transform 0.3s;
+}
+
+nb-card-header {
+  background-color: #052c65;
+  color: white;
+  text-align: center;      /* Centre le texte à l'intérieur de l'élément */
+
+  
+  
+}
+.input-group {
+  display: flex;
+  align-items: center;
+}
+
+.ticker-input {
+  flex: 1;
+  margin-right: 8px; /* Espace entre l'input et le bouton */
+  
+}
+
+
+
+
+.card:hover {
+  transform: scale(1.05); 
+}
+
+.side {
+  position: absolute;    /* Position the last card on the right side */
+  right: 0;              /* Align it to the right edge */
+  top: 0;                /* Start at the top of the page */
+  width: 400px;          /* Fixed width for the side card */
+  height: 100vh;         /* Occupies full height of the page */
+  margin: 0;             /* No margin for the side card */
+  background-color: #f0f8ff;
+}
+
+.input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px; /* Adistance el bouton al nav bar */
+  margin-right: 390px;
+  
+  
+}
+
+nb-card-body {
+  max-width: 500px;  
+  width: 100%;       
+  background-color: #f7f9fc; 
+  padding: 20px;
+  border-radius: 8px; /* rounded corners */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+}
+
+.button {
+  margin-top: 10px;     /* win fi west el cadre */
+  margin-left: 30px;
+  width: 40%;           /* 3ordh el boutton */
+  padding: 10px;        /* kobr el boutton bel toul */
+  font-size: 16px;      
+  color: #f7f9fc;       
+  background-color: #052c65; 
+  border-color: #052c65;
+  border-radius: 20%;   /* Rounded button */
+
+  padding: 0 10;  /* Ajoute du padding pour un bouton plus grand */
+  border: none;        /* Supprime la bordure */
+  border-radius: 5px;  /* Arrondit les bords du bouton */
+  cursor: pointer;  
+}
+
+/* .button:hover {
+  background-color: #052c65; 
+  border-color: #f7f9fc;     
+  color: #f7f9fc;            
+} */
+
+.comparaison{
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column; /* Aligne les éléments verticalement */
+  align-items: center;    /* Centre horizontalement tous les éléments */
+}
+
+.peers{
+  margin-top: 30px;
+}
+
+.centered-text {
+  display: flex;
+  justify-content: center; /* Centre horizontalement */
+  align-items: center;     /* Centre verticalement */
+  height: 100%;            /* Assure que l'élément prend toute la hauteur disponible */
+  text-align: center;      /* Centre le texte à l'intérieur de l'élément */
+  font-weight: bold;       /* Optionnel : pour mettre en valeur le titre */
+  font-size: 1.5rem;       /* Optionnel : pour agrandir le texte */
+}
+
+.centered-text1 {
+  display: flex;
+  justify-content: center; /* Centre horizontalement */
+  align-items: center;     /* Centre verticalement */
+  height: 100%;            /* Assure que l'élément prend toute la hauteur disponible */
+  text-align: center;      /* Centre le texte à l'intérieur de l'élément */
+
+}
+
+
+.input-container1 {
+  display: flex;          /* Utilise Flexbox pour les zones de saisie */
+  justify-content: center; /* Centre les zones de saisie horizontalement */
+  margin: 20px 0;       /* Espace autour de la zone de saisie */
+}
+
+.ticker-input {
+  width: 75%;           /* Chaque zone de saisie occupe 45% de la largeur */
+  margin: 0 45px;       /* Ajoute un espace entre les deux zones de saisie */
+  padding: 10px;       /* Ajoute du padding pour plus de confort */
+  border-radius: 5px;  /* Arrondit les bords */
+  border: 1px solid #ccc; /* Bordure légère */
+  align-items: center;     /* Centre verticalement */
+}
+.ticker-input1 {
+  width: 75%;           /* Chaque zone de saisie occupe 45% de la largeur */
+  margin: 0 10px;       /* Ajoute un espace entre les deux zones de saisie */
+  padding: 10px;       /* Ajoute du padding pour plus de confort */
+  border-radius: 5px;  /* Arrondit les bords */
+  border: 1px solid #ccc; /* Bordure légère */
+  align-items: center;     /* Centre verticalement */
+}
+
+.submit-button {
+  margin-top: 10px;    /* Espace au-dessus du bouton */
+  padding: 10px 20px;  /* Ajoute du padding pour un bouton plus grand */
+  background-color: #052c65; /* Couleur de fond */
+  color: white;        /* Couleur du texte */
+  border: none;        /* Supprime la bordure */
+  border-radius: 5px;  /* Arrondit les bords du bouton */
+  cursor: pointer;     /* Change le curseur au survol */
+}
+
+.submit-button:hover {
+  background-color: #052c65; /* Change la couleur de fond au survol */
+}
+
+.price-prediction {
+  color: #052c65;
+  font-style: italic;
+  text-align: center;      /* Centre le texte à l'intérieur de l'élément */
+
+}
+
+.recommendation {
+  color: #052c65;
+  font-style: italic;
+  text-align: center;      /* Centre le texte à l'intérieur de l'élément */
+
+}
+
+.risk-assessment {
+  color: #052c65;
+  font-style: italic;
+  text-align: center;      /* Centre le texte à l'intérieur de l'élément */
+
+}
+
+.peer{
+  color: #052c65;
+  font-style: italic;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 1px;
+
+}
+
+.comp{
+  color: #052c65;
+  font-style: italic;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 1px;
+
+}
+
+cadre{
+  background-color: black;
+}

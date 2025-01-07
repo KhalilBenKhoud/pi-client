@@ -36,6 +36,7 @@ export class NavbarComponent {
     )
   }
 
+  
   lastLesson() {
     return localStorage.getItem('lastLesson') ;
   }
@@ -43,5 +44,4 @@ export class NavbarComponent {
   toggleNotifications() {
     this.notificationsVisible = !this.notificationsVisible;
   }
-  
 }

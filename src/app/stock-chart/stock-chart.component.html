@@ -1,0 +1,120 @@
+<br>
+<br>
+<br>
+<br>
+<div class="stock-container">
+  <!-- Ligne contenant le symbole du stock, l'intervalle de temps et le bouton d'affichage du graphique -->
+  <div class="input-group-row">
+    <label for="symbol">Symbole :</label>
+    <input type="text" id="symbol" [(ngModel)]="stockSymbol" placeholder="Entrez le symbole du stock" />
+
+    <label for="interval">Intervalle :</label>
+    <select id="interval" [(ngModel)]="selectedInterval">
+      <option value="" disabled selected>Sélectionnez l'échelle de temps</option>
+      <option value="1min">1 minute</option>
+      <option value="5min">5 minutes</option>
+      <option value="15min">15 minutes</option>
+      <option value="30min">30 minutes</option>
+      <option value="60min">1 heure</option>
+      <option value="1d">1 jour</option>
+    </select>
+
+    <button class="show-chart-button" (click)="loadStockData()">Afficher le graphique</button>
+  </div>
+
+  <!-- Affichage du message d'erreur -->
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Wrapper pour le graphique et les contrôles de trading -->
+  <div class="chart-wrapper">
+    <!-- Conteneur du graphique -->
+    <div id="tv_chart_container"></div>
+
+    <!-- Contrôles de trading alignés à droite du graphique -->
+    <div class="trading-controls">
+      <!-- Groupe d'inputs pour la quantité et le type de position -->
+      <div class="action-group">
+        <label for="quantity">Quantité :</label>
+        <input type="number" id="quantity" [(ngModel)]="orderQuantity" placeholder="Entrez la quantité" />
+
+        <label for="orderType">Type de position :</label>
+        <select id="orderType" [(ngModel)]="orderPositionType">
+          <option value="long">Long</option>
+          <option value="short">Short</option>
+        </select>
+      </div>
+
+      <!-- Groupe de boutons pour acheter et vendre -->
+      <div class="button-group">
+        <button id="buy-button" class="buy-button" (click)="buyStock()">Acheter</button>
+        <button id="sell-button" class="sell-button" (click)="sellStock()">Vendre</button>
+        
+        <!-- Bouton pour afficher la recommandation de prix -->
+        
+      </div>
+      <button id="price-recommendation-button" class="price-recommendation-button" (click)="openPriceRecommendationDialog()">
+        Recommandation de Prix
+      </button>
+    </div>
+  </div>
+
+  <!-- Liste des assets si disponibles -->
+  <div class="assets-list" *ngIf="assets.length > 0">
+    <h3>Vos Assets :</h3>
+    <p-table [value]="assets" class="assets-table">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Symbole</th>
+          <th>Quantité</th>
+          <th>Prix d'achat</th>
+          <th>Type de Position</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-asset>
+        <tr>
+          <td>{{ asset.symbol }}</td>
+          <td>{{ asset.quantity }}</td>
+          <td>{{ asset.price_bought | number: '1.2-2' }}</td>
+          <td>{{ asset.position_type }}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+
+  <!-- PrimeNG Dialog pour la recommandation de prix -->
+  <p-dialog 
+  header="Recommandation de Prix" 
+  [(visible)]="showPriceRecommendationDialog" 
+  [closable]="true" 
+  [resizable]="false" 
+  [style]="{ width: '300px' }"
+  [modal]="true">
+  <div *ngIf="recommendation">
+    <h3>Recommandation pour {{ stockSymbol.toUpperCase() }}</h3>
+    <p>Prix Actuel : {{ recommendation.current_price | currency }}</p>
+    <p>Prix Prédit : {{ recommendation.predicted_price | currency }}</p>
+    <p>Recommandation : <strong>{{ recommendation.recommendation }}</strong></p>
+  </div>
+
+  <div *ngIf="error" class="error">
+    <p>{{ error }}</p>
+  </div>
+  <ng-template #loading>
+    <p>Chargement de la recommandation...</p>
+  </ng-template>
+</p-dialog>
+ <!-- Bouton pour ouvrir la barre latérale -->
+ <button pButton type="button" (click)="openSidebar()" label="Open CopyTrade"></button>
+  
+ <!-- Sidebar avec le contenu de CopyTradeComponent -->
+ <p-sidebar
+ [visible]="visible"
+ position="right"
+ [style.width.px]="5000"
+ (onHide)="closeSidebar()"
+ header="CopyTrade"
+ >
+   <app-copy-trade></app-copy-trade>
+ </p-sidebar>

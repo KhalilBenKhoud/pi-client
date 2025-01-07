@@ -8,23 +8,13 @@ nav {
     width: 100%;
     z-index: 20;
     transition: box-shadow 0.3s ease-in-out;
-   height: 70px;
-   overflow: hidden;
-
     height: 70px;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .scrolled {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Add shadow */
     height: 60px;
-   
-  }
-  
-.links {
-    display: flex;
-    gap : 30px ;
-    position: relative;
 }
 
 .nav-left {
@@ -34,14 +24,21 @@ nav {
     gap: 30px;
 }
 
+  
 .links {
     display: flex;
-    gap: 30px;
+    gap : 30px ;
+    position: relative;
 }
 
 :host ::ng-deep .register {
     background: gray;
     border-color: gray;
+}
+:host ::ng-deep .register:hover {
+    background-color: whitesmoke;
+    color: black;
+
     &:hover {
         background-color: whitesmoke;
         color : black ;
@@ -53,11 +50,3 @@ nav {
       top: 1570px ;
       right : 0 ;
   }
-  @import url(https://therichpost.com/responsivestyle/index.css);
-@import url("https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.0/font/bootstrap-icons.min.css");
-.logo{font-size: 3rem;}app-dashboard{flex-grow: 1 !important;}
-
-:host ::ng-deep .register:hover {
-    background-color: whitesmoke;
-    color: black;
-}

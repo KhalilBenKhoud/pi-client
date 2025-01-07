@@ -1,0 +1,96 @@
+<div class="input-container">
+  <nb-card-body>
+    <div class="input-group">
+      <input class="ticker-input" type="text" nbInput status="primary" placeholder="Ticker" [(ngModel)]="ticker">
+      <button class="button" (click)="update()">Enter</button>
+    </div>
+  </nb-card-body>
+</div>
+
+<div class="cards-container">
+  <nb-card class="card">
+    <nb-card-header>Price Prediction</nb-card-header>
+    <nb-card-body [ngClass]="{'price-prediction': pricePrediction}" *ngIf="pricePrediction">
+      {{ pricePrediction }}
+      <div style="margin-bottom: 10px; margin-left: 5px;margin-right: 30px;">
+      </div> 
+    </nb-card-body>
+  </nb-card>
+
+  <nb-card class="card">
+    <nb-card-header>Recommendation</nb-card-header>
+    <nb-card-body [ngClass]="{'recommendation': recommendation}">
+      <div>{{ recommendation }}</div>
+      <div style="width: 100%; margin-top: 20px;">
+        <canvas id="recommendationChart"></canvas>
+      </div>
+      <br />
+
+      
+      <div *ngIf="overallRecommendation">{{ overallRecommendation }}</div>
+      <div style="margin-bottom: 10px; margin-left: 5px;margin-right: 30px;">
+      </div> 
+
+      <!-- Chart Section -->
+      
+    </nb-card-body>
+  </nb-card>
+
+  <nb-card class="card">
+    <nb-card-header>Risk Assessment</nb-card-header>
+    <nb-card-body [ngClass]="{'risk-assessment': riskAssessment1}">
+      <div>{{ riskAssessment1 }}</div>
+      <div *ngIf="beta">{{ beta }}</div>
+      <div *ngIf="volatility">{{ volatility }}</div>
+      <div *ngIf="sharpe_ratio">{{ sharpe_ratio }}</div>
+      <div *ngIf="rec">{{ rec }}</div>
+      <div style="margin-bottom: 10px; margin-left: 5px;margin-right: 30px;">
+      </div> 
+
+      
+    </nb-card-body>
+  </nb-card>
+</div>
+
+<div> 
+  <nb-card class="side">
+    <nb-card-body>
+      <div class="comparaison">
+        <h5 class="centered-text">Envie de savoir quel ticker a le meilleur potentiel ? </h5>
+        <h6 class="centered-text1">Comparons-les pour en découvrir !</h6>
+
+        <div class="input-container1">
+          <input type="text" class="ticker-input1" placeholder="Ticker 1"  [(ngModel)]="ticker1">
+          <input type="text" class="ticker-input1" placeholder="Ticker 2"  [(ngModel)]="ticker2">
+        </div>
+
+        <button class="submit-button" (click)="updateC()">Comparer</button>
+        <p *ngIf="comp" [ngClass]="{'comp': comp}">{{ comp }} </p>
+        <p *ngIf="i" [ngClass]="{'comp': i}">{{ i }} </p>
+      </div>
+
+      <div class="peers">
+        <h5 class="centered-text"> Quel est le meilleur concurrent pour ce ticker ? </h5>
+        <h6 class="centered-text1">Découvrez-le ici !</h6>
+
+        <div style="display: flex; justify-content: center; align-items: center;">
+          <input type="text" class="ticker-input1" placeholder="Ticker" style="margin-right: 10px;" [(ngModel)]="tickerp">
+          <button class="submit-button" (click)="updateP()">Comparer</button>
+        </div>
+        <p *ngIf="peer" [ngClass]="{'peer': peer}"> {{peer}}</p>
+        <p *ngIf="int" [ngClass]="{'peer': int}"> {{int}}</p>
+      </div>
+    </nb-card-body>
+  </nb-card>
+</div>
+
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div id="chart-container">
+      <div id="chart"></div>
+    </div>
+    <p></p>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

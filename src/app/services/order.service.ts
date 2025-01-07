@@ -8,6 +8,8 @@ export interface Order {
   order_type: string;
   action: string;
   price?: number;
+  take_profit?: number; // Optional TP field
+  stop_loss?: number;   // Optional SL field
 }
 
 @Injectable({
